@@ -82,33 +82,33 @@ const Music = (song) => {
       <nav>
         <RouterLink to="/">
           <span class="nav-icon">
-            <img width="26" height="24.95" alt="Home Icon" :src="HomeIcon" />
+            <img width="30" height="30" alt="Home Icon" :src="HomeIcon" />
           </span>
           <span>Home</span>
         </RouterLink>
         <RouterLink to="/tutorial">
           <span class="nav-icon">
-            <img width="26" height="24.95" alt="Learn Icon" :src="LearnIcon" />
+            <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
           </span>
           <span>Learn</span>
         </RouterLink>
         <RouterLink class="play-icon" to="/game">
           <span class="nav-icon">
-            <img width="26" height="24.95" alt="Play Icon" :src="PlayIcon" />
+            <img width="40" height="40" alt="Play Icon" :src="PlayIcon" />
             <span class="top-left"></span>
             <span class="top-right"></span>
           </span>
-          <span>Play</span>
+          <span>Play Demo</span>
         </RouterLink>
         <a href @click.prevent="muteToggle()">
           <span class="nav-icon">
-            <img width="26" height="24.95" alt="Mute Icon" :src="MuteIcon" />
+            <img width="30" height="30" alt="Mute Icon" :src="MuteIcon" />
           </span>
           <span>Mute</span>
         </a>
         <a href @click.prevent="exit()">
           <span class="nav-icon">
-            <img width="26" height="24.95" alt="Exit Icon" :src="CloseIcon" />
+            <img width="30" height="30" alt="Exit Icon" :src="CloseIcon" />
           </span>
           <span>Exit</span>
         </a>
@@ -142,15 +142,13 @@ header {
 nav {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
-  font-size: 12px;
+  font-size: 8px;
+  font-weight: 700;
   text-align: center;
 }
 
-nav a {
-  color: var(--vt-c-white);
-}
 
 nav a.router-link-exact-active {
   color: var(--color-text);
@@ -164,6 +162,8 @@ nav a {
   display: flex;
   flex-flow: column nowrap;
   padding: 0 .75rem;
+  color: var(--vt-c-white);
+
 }
 nav a span.nav-icon {
   margin-top: 5px;
@@ -190,12 +190,20 @@ nav a:first-of-type {
 }
 .play-icon span.nav-icon {
   width: 92px;
-  height: 70px !important;
+  height: 74px !important;
   margin: 0 6px -25px;
   padding: 6px 10px 8px !important;
   border-radius: 0 0 20px 20px;
   background-color: var(--color-green-light);
   position: relative;
+  box-shadow: 0px 0px 4px rgba(0, 122, 61, 0.82), inset 0px 1px 3px #007A3D, inset 0px 1px 3px #0BCE65;
+}
+
+.play-icon span {
+  font-size: 12px;
+  font-weight: 700;
+  font-style: italic;
+  margin-top: 3px;
 }
 
 .top-right,
