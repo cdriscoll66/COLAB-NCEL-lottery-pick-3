@@ -25,9 +25,9 @@ onMounted(() => {
     });
 
     // fade in system
-    tl.to('#winning', {duration: .01, y: 50});
-    tl.to('#fireball__row', {duration: .01, y: 50});
-    tl.to('#picks', {duration: .01, y: 50});
+    tl.to('#winning', {duration: .0, opacity: 0, y: 50});
+    tl.to('#fireball__row', {duration: .0, opacity: 0, y: 50});
+    tl.to('#picks', {duration: .0, opacity: 0, y: 50});
     tl.to('#fireball', {duration: .5, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut'});
     tl.to ('#winning', {duration: .5, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#fireball__row', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});

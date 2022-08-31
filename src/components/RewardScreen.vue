@@ -13,10 +13,10 @@ onMounted(() => {
     });
 
     // fade in system
-    tl.to('#hl1', {duration: .0, y: 50});
-    tl.to('#hl2', {duration: .0, y: 50});
-    tl.to('#hl3', {duration: .0, y: 50});
-    tl.to('#logo', {duration: .0, y: 50});
+    tl.to('#hl1', {duration: .0, opacity: 0, y: 50});
+    tl.to('#hl2', {duration: .0, opacity: 0, y: 50});
+    tl.to('#hl3', {duration: .0, opacity: 0, y: 50});
+    tl.to('#logo', {duration: .0, opacity: 0, y: 50});
     tl.to('#hl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
         jackpot.play();
     }});

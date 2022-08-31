@@ -1,6 +1,6 @@
 import { createRouter, createMemoryHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import { ClickSound } from '../composables/sfx.js'
 
 const router = createRouter({
   // history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,6 +27,11 @@ const router = createRouter({
       component: () => import('../views/GameDemo.vue')
     }
   ]
+})
+
+
+router.afterEach((to, from) => {
+  ClickSound();
 })
 
 export default router

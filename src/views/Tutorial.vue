@@ -7,6 +7,7 @@ import FwdBtn from '../assets/arrow-square-right.svg'
 import BackBtn from '../assets/arrow-square-left.svg'
 import VideoPlayer from '../components/VideoPlayer.vue'
 import ProgressBar from '../components/ProgressBar.vue'
+import { ClickSound } from '../composables/sfx'
 
 const emit = defineEmits(['music', 'musicplaypause'])
 
@@ -160,11 +161,13 @@ const prevVideo = () => {
 }
 
 const Playpause = () => {
+  ClickSound()
   state.playing = !state.playing
   emit('musicplaypause', state.playing)
 }
 
 const handleToc = (i) => {
+  ClickSound()
   state.subject = i
   state.video = 0
   state.playing = true

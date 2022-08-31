@@ -2,10 +2,12 @@
 
 import { gamesStore } from '@/store/GamesStore'
 import { RouterLink } from 'vue-router'
+import { ClickSound } from '../composables/sfx';
 
 const store = gamesStore()
 
 const resetGame = () => {
+  ClickSound()
   store.resetPicksAndFireball()
   store.setPresentGame(null)
 }

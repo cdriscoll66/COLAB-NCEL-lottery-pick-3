@@ -40,10 +40,12 @@ const quickPick = () => {
 }
 
 const queryFireball = () => {
+  ClickSound()
   store.showFireball()
 }
 
 const playFireball = () => {
+  ClickSound()
   store.hideFireball()
   store.useFireball()
   store.genFireball()
@@ -51,6 +53,7 @@ const playFireball = () => {
 }
 
 const optOut = () => {
+  ClickSound()
   store.hideFireball()
   store.noFireball()
   store.genFireball()

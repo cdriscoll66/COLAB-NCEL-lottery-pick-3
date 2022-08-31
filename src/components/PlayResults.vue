@@ -5,6 +5,8 @@ import BgStars from './BgStars.vue'
 import ConfirmScreen from './ConfirmNumbersScreen.vue'
 import Winner from './Winner.vue'
 import ShouldaFireballed from './ShouldaFireballed.vue'
+import { ClickSound } from '../composables/sfx';
+
 const store = gamesStore()
 
 const emit = defineEmits(['next-game'])
@@ -15,6 +17,7 @@ const state = reactive({
 
 
 const playRewardScreen = () => {
+  ClickSound()
   state.showConfirmScreen = false
 }
 
