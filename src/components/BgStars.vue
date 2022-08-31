@@ -47,21 +47,16 @@ const props = defineProps(['green', 'gray'], {
   overflow: hidden;
 }
 
-.bg-stars__inner::after:not(.green, .gray) {
+.bg-stars__inner:after {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   content: '';
-  background: linear-gradient(
-    180deg,
-    rgb(255, 210, 6) -3.61%,
-    rgb(201, 165, 5) 32.66%,
-    rgb(165, 136, 5) 56.4%
-  );
+  background: linear-gradient(180deg, rgba(255, 210, 6, 0.6) 0%, rgba(201, 165, 5, 0.6) 36.27%, rgba(165, 136, 5, 0.6) 60.01%);
   opacity: 0.6;
-  background-blend-mode: color-burn;
+  mix-blend-mode: color-burn;
 }
 
 .green > .bg-stars__inner::after {
@@ -72,6 +67,16 @@ const props = defineProps(['green', 'gray'], {
   height: 100%;
   content: '';
   background: linear-gradient(180deg, rgba(0, 61, 31, 1) 15%, rgba(0, 61, 31, 0.5) 25%, rgba(0, 61, 31, 0) 35%);
+}
+
+.gray > .bg-stars__inner::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  content: '';
+  background: linear-gradient(0, rgba(50, 50, 50, 0) 50%, rgba(50, 50, 50, 0.25) 65%, rbg(50, 50, 50) 90%);
 }
 
 .bg-stars__stars {
