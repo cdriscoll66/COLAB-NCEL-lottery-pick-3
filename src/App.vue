@@ -6,6 +6,8 @@ import LearnIcon from './assets/menu.png'
 import PlayIcon from './assets/play.png'
 import MuteIcon from './assets/sound.png'
 import CloseIcon from './assets/close.png'
+import { ClickSound } from '../composables/sfx';
+
 
 // this resizes the screen to whatever screen it's on.
 onBeforeMount(() => {

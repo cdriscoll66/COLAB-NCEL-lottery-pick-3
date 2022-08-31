@@ -3,17 +3,13 @@ import { gamesStore } from '@/store/GamesStore'
 import PlayResults from '../components/PlayResults.vue'
 import GameBoard from '../components/GameBoard.vue'
 import Fireball from '../assets/fireball.png'
+import { ClickSound } from '../composables/sfx';
 
 const emit = defineEmits(['music', 'musicplaypause', 'protip'])
 
 const store = gamesStore()
 
-let click = new Audio('../audio/sprite/button_click.mp3')
 
-const btnClick = () => {
-  click.currentTime = 0
-  click.play()
-}
 
 const numberSelection = (num, slot) => {
   if (store.presentrules == 1) {
@@ -32,7 +28,7 @@ const numberSelection = (num, slot) => {
 
 const quickPick = () => {
   // generate an array of 3 integers between 0 and 9 but they must be unique.
-  btnClick()
+  ClickSound()
   if (store.presentrules == 0) {
     store.randomNums()
   } else if (store.presentrules == 1) {
@@ -68,8 +64,8 @@ const nextGame = () => {
 }
 
 const chooseRules = (num) => {
-  btnClick()
-  store.setPresentRules(num)
+  ClickSound()
+   store.setPresentRules(num)
 }
 </script>
 

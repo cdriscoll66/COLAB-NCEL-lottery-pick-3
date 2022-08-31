@@ -1,12 +1,13 @@
 <script setup>
 import BgStars from '../components/BgStars.vue';
+import { ClickSound } from '../composables/sfx';
+
 
 const emit = defineEmits(['confirm-yes']);
 
-let click = new Audio('../audio/sprite/button_click.mp3');
 
 const confirmation = () => {
-  click.play();
+  ClickSound();
   emit('confirm-yes');
 }
 

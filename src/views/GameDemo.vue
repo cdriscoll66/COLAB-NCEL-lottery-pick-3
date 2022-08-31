@@ -4,6 +4,7 @@ import { gamesStore } from '@/store/GamesStore'
 import BgStars from '../components/BgStars.vue'
 import EighteenModal from '../components/EighteenModal.vue'
 import GameFrame from '../components/GameFrame.vue'
+import { ClickSound } from '../composables/sfx';
 
 import ProTip from '../components/ProTipModal.vue'
 
@@ -11,34 +12,30 @@ const emit = defineEmits(['music', 'musicplaypause'])
 
 const store = gamesStore()
 
-let click = new Audio('../audio/sprite/button_click.mp3');
 
-const btnClick = () => {
-    click.currentTime = 0;
-    click.play();
-}
+
 
 const state = reactive({
   showProTip: false,
 })
 
 const closeModal = () => {
-  btnClick();
+  ClickSound();
   store.confirmEighteen()
 }
 
 const closeProTip = () => {
-  btnClick();
+  ClickSound()
   state.showProTip = false
 }
 
 const openProTip = () => {
-  btnClick();
+  ClickSound();
   state.showProTip = true
 }
 
 const chooseGame = (game) => {
-  btnClick();
+  ClickSound();
   store.setPresentGame(game)
 }
 
