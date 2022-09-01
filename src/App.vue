@@ -18,8 +18,8 @@ onBeforeMount(() => {
     doc.style.setProperty(
       '--viewport-scale',
       Math.min(
-        window.innerWidth / 375, // [320, 375] // see App.vue #Cash5App width
-        window.innerHeight / 635, // [559, 635] // see App.vue #Cash5App height
+        window.innerWidth / 375, // [320, 375] 
+        window.innerHeight / 635, // [559, 635] 
       ),
     )
   }

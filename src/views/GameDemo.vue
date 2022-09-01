@@ -120,6 +120,13 @@ onMounted(() => {
   margin-right: 7.5%;
 }
 
+.rules-select__note {
+  margin-top: -30px;
+  margin-bottom: 30px;
+  color: var(--vt-c-white);
+  font-size: 14px;
+}
+
 .game-select__list a,
 .rules-select__list a {
   display: flex;

@@ -29,33 +29,14 @@ const emit = defineEmits(['close']);
 
       <div v-else-if="(store.presentgame === null)" class="modal__text">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum
+          Exact, Any, and 50/50 are the most popular ways to play pick three, but they aren’t the only ways. Try Combo, Front pair, or Back Pair for more ways to play and win.
         </p>
         <h2>Combo</h2>
         <p>
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-        </p>
-        <h2>Front Pair</h2>
+          Provides an Exact play for all possible combinations of the numbers you selected on a single ticket.        </p>
+        <h2>Pairs (Front or Back)</h2>
         <p>
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-        </p>
-        <h2>Back Pair</h2>
-        <p>
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-        </p>
-        <h2>Front Pair</h2>
-        <p>
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
-        </p>
-        <h2>Back Pair</h2>
-        <p>
-          Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          Pick two numbers and specify Front Pair or Back Pair by checking the appropriate Play Type. For a Front Pair play, select numbers in the first two rows only; for a Back Pair play, select numbers in the last two rows only. Selected pair of numbers must match the winning pair in the exact order drawn.
         </p>
       </div>
 
