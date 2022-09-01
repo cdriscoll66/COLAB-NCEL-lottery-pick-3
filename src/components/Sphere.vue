@@ -12,7 +12,7 @@ onMounted(() => {
     repeat: -1,
     delay: 2,
   })
-  sphereRotateY.to('#spheretext', { delay: 0, duration: 0, y: '-100%' })
+  sphereRotateY.to('#spheretext', { delay: 0, duration: 0, opacity: 0, y: '-100%' })
   sphereRotateY.to('#spherelogo', {
     delay: -0.5,
     duration: 1.2,
@@ -46,7 +46,7 @@ onMounted(() => {
     y: '100%',
     ease: 'power2.in',
   })
-  sphereRotateY.to('#spheretext', { delay: 0, duration: 0, y: '-100%' })
+  sphereRotateY.to('#spheretext', { delay: 0, duration: 0, opacity: 0, y: '-100%' })
 })
 </script>
 
