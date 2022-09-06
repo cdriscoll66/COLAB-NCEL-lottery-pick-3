@@ -55,6 +55,10 @@ h2 {
   padding: 50px 30px 0 30px;
 }
 
+.notice a {
+  color: var(--color-text);
+  text-decoration: underline;
+}
 .eighteen__form {
   flex-grow: 1;
   display: flex;

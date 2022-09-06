@@ -2,7 +2,7 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 import Logo from '../assets/pick3plusfireball-logo-green.png'
-c
+
 onMounted(() => {
   let spheretl = gsap.timeline({})
   spheretl.to('#sphere', { duration: 1 })
