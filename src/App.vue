@@ -1,12 +1,14 @@
 <script setup>
-import { onBeforeMount, reactive } from 'vue'
-import { RouterLink, RouterView } from 'vue-router'
+import { onBeforeMount, reactive, computed } from 'vue'
+import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { tutorialStore } from '@/store/TutorialsStore'
 import HomeIcon from './assets/home.png'
 import LearnIcon from './assets/menu.png'
 import PlayIcon from './assets/play.png'
 import MuteIcon from './assets/sound.png'
 import CloseIcon from './assets/close.png'
 
+const store = tutorialStore()
 
 // this resizes the screen to whatever screen it's on.
 onBeforeMount(() => {
@@ -36,6 +38,16 @@ onBeforeMount(() => {
 //         img.src = pic;
 //       })
 //     }
+
+
+const routeName = computed(() => {
+  return useRoute().name
+})
+
+const showTOC = () => {
+  store.toggleTOC()
+}
+
 
 const state = reactive({
   music: '',
@@ -85,12 +97,25 @@ const Music = (song) => {
           </span>
           <span>Home</span>
         </RouterLink>
+
+        <span v-if="routeName == 'tutorial'">
+        <a href @click.prevent="showTOC">
+          <span class="nav-icon">
+            <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
+          </span>
+          <span>Chapters</span>
+        </a>
+        </span>
+
+        <span v-else>
         <RouterLink to="/tutorial">
           <span class="nav-icon">
             <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
           </span>
           <span>Learn</span>
         </RouterLink>
+        </span>
+     
         <RouterLink class="play-icon" to="/game">
           <span class="nav-icon">
             <img width="40" height="40" alt="Play Icon" :src="PlayIcon" />

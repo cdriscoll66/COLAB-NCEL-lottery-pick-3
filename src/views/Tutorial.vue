@@ -1,5 +1,6 @@
 <script setup>
-import { reactive, onBeforeMount } from 'vue'
+import { reactive } from 'vue'
+import { tutorialStore } from '@/store/TutorialsStore'
 
 import PlayBtn from '../assets/play.svg'
 import PauseBtn from '../assets/pause.svg'
@@ -11,13 +12,12 @@ import { ClickSound } from '../composables/sfx'
 
 const emit = defineEmits(['music', 'musicplaypause'])
 
-onBeforeMount(() => {
-  // state.showToc = true
-  // state.playing = false
-})
+const store = tutorialStore()
+
+
+
 
 const state = reactive({
-  showToc: false,
   subject: 0,
   video: 0,
   playing: true,
@@ -201,7 +201,6 @@ const handleEnd = () => {
 }
 
 const UpdateTime = (timer) => {
-  console.log(timer);
   let timerPercent =
     (timer / state.tuts[state.subject].videos[state.video].length) * 100
   state.tuts[state.subject].videos[state.video].marker = timerPercent
@@ -233,14 +232,14 @@ const handleToc = (i) => {
   state.subject = i
   state.video = 0
   state.playing = true
-  state.showToc = false
+  store.showtoc = false
   emit('music', '/audio/3FunkShortVersion.mp3')
 }
 </script>
 
 <template>
   <main>
-    <div v-show="(state.showToc)" class="table-of-contents">
+    <div v-show="(store.showtoc)" class="table-of-contents">
       <ul>
         <li v-for="(tut, index) in state.tuts">
           <a href="#" @click.prevent="handleToc(index)">
@@ -257,7 +256,7 @@ const handleToc = (i) => {
       ></ProgressBar>
     </div>
     <VideoPlayer
-      v-show="!state.showToc"
+      v-show="!store.showtoc"
       :onscreen="state.tuts[state.subject].videos[state.video].video"
       :playing="state.playing"
       :key="state.tuts[state.subject].videos[state.video].id"
