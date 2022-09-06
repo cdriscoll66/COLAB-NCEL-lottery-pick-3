@@ -29,7 +29,7 @@ const emit = defineEmits(['close']);
 
       <div v-else-if="(store.presentgame === null)" class="modal__text">
         <p>
-          Exact, Any, and 50/50 are the most popular ways to play pick three, but they aren’t the only ways. Try Combo, Front pair, or Back Pair for more ways to play and win.
+          Exact, Any, and 50/50 are the most popular ways to play pick 3, but they aren’t the only ways. Try Combo, Front pair, or Back Pair for more ways to play and win.
         </p>
         <h2>Combo</h2>
         <p>

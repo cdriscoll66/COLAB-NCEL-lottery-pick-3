@@ -48,7 +48,7 @@ const emit = defineEmits(['play-reward-screen']);
 }
 
 .review {
-  margin: 10px;
+  margin: 50px 10px 10px;
 }
 .fireball-mark {
   display: flex;

@@ -3,6 +3,7 @@ import { gamesStore } from '@/store/GamesStore'
 import PlayResults from '../components/PlayResults.vue'
 import GameBoard from '../components/GameBoard.vue'
 import Fireball from '../assets/fireball.png'
+import Logo from '../assets/pick3plusfireball-logo.png'
 import { ClickSound } from '../composables/sfx';
 
 const emit = defineEmits(['music', 'musicplaypause', 'protip'])
@@ -77,15 +78,22 @@ const chooseRules = (num) => {
   <div class="btn-row" v-else>
     <a class="small-btn" href @click.prevent="emit('protip')">Pro Tip</a>
     <a class="small-btn" href="https://www.yahoo.com" target="_blank">
-      Prizes & Odds
+      Prizes  Odds
     </a>
   </div>
   <div v-if="(store.presentrules === null)" class="rules-select__container">
     
-    
+    <div><img
+          width="256"
+          height="102"
+          id="logo"
+          alt="Pick 3 Plus Fireball logo"
+          :src="Logo"
+        /></div>
     <div class="rules-select__list">
-      <div class="rules-select__note">
-    <p>There are lots of ways to play pick three. Choose one of these most popular ways to learn how the game is played.</p>
+      
+      <div class="playtype-select__note">
+    <p>There are lots of ways to play pick 3. Choose one of these most popular ways to learn how the game is played.</p>
     </div>
       <a href @click.prevent="chooseRules(0)">Pick Different Numbers</a>
       <a
@@ -93,10 +101,10 @@ const chooseRules = (num) => {
         href
         @click.prevent="chooseRules(1)"
       >
-        Pick all the Same number
+        Pick All the Same Number
       </a>
       <a v-else href @click.prevent="chooseRules(2)">
-        Pick 2 the same and one different
+        Pick 2 of the Same and 1 Different
       </a>
     </div>
   </div>
@@ -197,6 +205,13 @@ h2 {
   color: var(--vt-c-white);
   text-align: center;
   margin-top: 10px;
+}
+
+.playtype-select__note {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: var(--vt-c-white);
+  font-size: 14px;
 }
 
 .game h2 {

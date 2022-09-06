@@ -69,7 +69,7 @@ onMounted(() => {
       <div class="game-select__container">
         <h2>
           Select
-          <span>Play Type:</span>
+          <span>play type:</span>
         </h2>
         <div class="game-select__list">
           <a href @click.prevent="chooseGame('exact')">Exact</a>

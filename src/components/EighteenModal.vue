@@ -26,8 +26,7 @@ const confirmation = () => {
     </a>
     </div>
     </div>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-    <BgStars />
+    <p class="notice"> Game demos are for educational purposes only and do not represent actual odds of winning. Winning in this experience does not convey any prizes or cash value. There may be some minor variations between the demo game and the actual game. The North Carolina Education Lottery Cash 5 game play is subject to <a data-v-83f2f17a="" target="_blank" href="https://nclottery.com/Content/Docs/2.04C%20Carolina%20Cash%205%20Game%20Rules.pdf">NCEL game rules</a>. </p>    <BgStars />
   </div>
 </template>
 

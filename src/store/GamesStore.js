@@ -15,14 +15,14 @@ export const gamesStore = defineStore("games", {
     gamerules: [
       {
         id: 0,
-        instructions1: "Select Your Numbers,",
+        instructions1: "Select your numbers,",
         instructions2: "one per row.",
         gamenote:
           "Explainer text about not being able to select the same number more than once...",
       },
       {
         id: 1,
-        instructions1: "Select Your Numbers,",
+        instructions1: "Select your numbers,",
         instructions2: "All three numbers should be the same.",
         gamenote:
           "Explainer text about having to select the exact same number across the board...",
