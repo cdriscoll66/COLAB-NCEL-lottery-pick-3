@@ -143,7 +143,7 @@ const state = reactive({
       ],
     },
     {
-      subject: 'Check Results',
+      subject: 'See if You\'ve Won',
       videos: [
       {
           id: 16,
