@@ -62,7 +62,7 @@ onMounted(() => {
         <a class="small-btn" href @click.prevent="openProTip">
           Pro Tip
         </a>
-        <a class="small-btn" href="https://www.yahoo.com" target="_blank">
+        <a class="small-btn" href="https://nclottery.com/pick3-how-to-play" target="_blank">
           Prizes & Odds
         </a>
       </div>

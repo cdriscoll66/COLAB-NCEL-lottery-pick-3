@@ -24,6 +24,7 @@ const emit = defineEmits(['close']);
           <img width="183" height="21" alt="Fireball" :src="Fireball" />
           <h2 class="highlighted">Use <span>“Quick Pick”</span> to have your numbers randomly selected.
 </h2>
+<p>When you add Fireball to Pick 3, you get an extra drawn-number for more combinations to match and win. A Fireball number is drawn following each Carolina Pick 3 drawing. When you add Fireball to your ticket, the Fireball number can replace any other Pick 3 drawn-number for more chances to win.</p>
       </div>
 
 

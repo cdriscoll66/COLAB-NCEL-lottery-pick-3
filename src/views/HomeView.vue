@@ -68,7 +68,7 @@ const onLeave = (path) => {
     <a id="tutbtn" href @click.prevent="onLeave('tutorial')" class="accent-button">
       <div id="tutbtntxt">
         <span class="button__title">Learn the Game</span>
-        <span class="button__subtitle">70-Second Tour</span>
+        <span class="button__subtitle">Take the Tour</span>
       </div>
     </a>
 

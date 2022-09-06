@@ -29,16 +29,17 @@ onBeforeMount(() => {
   // preloadImages();
 })
 
- const preloadImages = () => {
-   const pics = state.preloadImages;
-      pics.forEach(pic => {
-        const img = new Image();
-        img.src = pic;
-      })
-    }
+//  const preloadImages = () => {
+//    const pics = state.preloadImages;
+//       pics.forEach(pic => {
+//         const img = new Image();
+//         img.src = pic;
+//       })
+//     }
 
 const state = reactive({
   music: '',
+  muted: false,
   preloadImages: [
     '/assets/bg-stars.svg',
     '/assets/bg-stars--green.svg',
@@ -52,6 +53,7 @@ const state = reactive({
 
 const muteToggle = () => {
   bgMusic.muted = !bgMusic.muted;
+  state.muted = !state.muted;
 }
 
 const playToggle = (status) => {
@@ -61,10 +63,6 @@ const playToggle = (status) => {
 let bgMusic = new Audio()
 bgMusic.src = state.music
 bgMusic.loop = true
-
-const exit = () => {
-  console.log('exit')
-}
 
 const Music = (song) => {
   if (state.music == song){
@@ -105,9 +103,10 @@ const Music = (song) => {
           <span class="nav-icon">
             <img width="30" height="30" alt="Mute Icon" :src="MuteIcon" />
           </span>
-          <span>Mute</span>
+          <span v-if="state.muted">Unmute</span>
+          <span v-else>Mute</span>
         </a>
-        <a href @click.prevent="exit()">
+        <a href="https://nclottery.com/pick3" target="_blank">
           <span class="nav-icon">
             <img width="30" height="30" alt="Exit Icon" :src="CloseIcon" />
           </span>

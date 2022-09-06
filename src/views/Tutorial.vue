@@ -12,15 +12,15 @@ import { ClickSound } from '../composables/sfx'
 const emit = defineEmits(['music', 'musicplaypause'])
 
 onBeforeMount(() => {
-  state.showToc = true
-  state.playing = false
+  // state.showToc = true
+  // state.playing = false
 })
 
 const state = reactive({
-  showToc: true,
+  showToc: false,
   subject: 0,
   video: 0,
-  playing: false,
+  playing: true,
   tuts: [
     {
       subject: 'Ways to Win',
@@ -327,7 +327,7 @@ h1 {
 .table-of-contents {
   position: relative;
   height: 100%;
-  background-color: #a7a7a7;
+  background-color: var(--color-green-dark);
   padding: 10px;
   z-index: 2;
 }
@@ -339,21 +339,24 @@ h1 {
   flex-flow: column nowrap;
   justify-content: space-evenly;
   align-items: flex-start;
-  margin: 0 25%;
+  margin: 0 20%;
 }
 .table-of-contents ul li a {
   font-weight: bold;
   color: var(--vt-c-white);
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -.31px;
   text-shadow: -1px 1px 8px rgba(0, 61, 31, 0.75);
 }
 
 .table-of-contents ul li a:before {
   content: '';
   display: inline-block;
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   margin-right: 10px;
-  vertical-align: top;
+  vertical-align: middle;
   background-image: url(../assets/play-circle.svg);
   background-repeat: no-repeat;
   background-size: contain;
