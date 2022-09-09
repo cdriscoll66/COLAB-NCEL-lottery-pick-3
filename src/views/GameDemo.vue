@@ -74,7 +74,6 @@ onMounted(() => {
         <div class="game-select__list">
           <a href @click.prevent="chooseGame('exact')">Exact</a>
           <a href @click.prevent="chooseGame('any')">Any</a>
-          <a href @click.prevent="chooseGame('fifty')">50/50</a>
         </div>
         <div class="info-point">
           <p>

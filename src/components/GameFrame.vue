@@ -57,14 +57,12 @@ const optOut = () => {
   ClickSound()
   store.hideFireball()
   store.noFireball()
-  store.genFireball()
   store.showResults()
 }
 
 const nextGame = () => {
   store.hideResults()
   store.resetPicksandFireball()
-  store.setPresentRules(null)
 }
 
 const chooseRules = (num) => {
