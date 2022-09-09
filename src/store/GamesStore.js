@@ -6,12 +6,18 @@ export const gamesStore = defineStore("games", {
     iseighteen: false,
     showfireball: false,
     showresults: false,
-    fireballselected: false,
+    fireballselected: false, // true if fireball is selected
     picks: [null, null, null],
-    fireball: null,
-    presentgame: null,
-    presentrules: null,
+    fireball: null, 
+    loser: null,
+    presentgame: null, // exact or any
+    presentrules: null, // diff, same, 2 or 1
     prizemoney: 0,
+    playedexact: 0,
+    playedany: 0,
+    winpercentage: null,
+    finalwinners: [null, null, null],
+    finalfireball: null,
     gamerules: [
       {
         id: 0,
@@ -61,11 +67,15 @@ export const gamesStore = defineStore("games", {
     resetPicksAndFireball() {
       this.picks = [null, null, null];
       this.fireball = null;
+      this.loser = null;
       this.showresults = false;
       this.presentrules = null;
       this.presentgame = null;
       this.showfireball = false;
       this.prizemoney = 0;
+      this.winpercentage = null;
+      this.finalwinners = [null, null, null];
+      this.finalfireball = null;
 
     },
     selectNum(num, slot) {
@@ -134,11 +144,24 @@ export const gamesStore = defineStore("games", {
         this.prizemoney = 30;
       } else if (this.presentgame === "any" && rules == 2) {
         this.prizemoney = 60;
-      } else if (this.presentgame === "fifty" && rules == 0) {
-        this.prizemoney = 15;
-      } else if (this.presentgame === "fifty" && rules == 2) {
-        this.prizemoney = 30;
-      }
+      } 
     },
+    exactIncrement() {
+      this.playedexact++;
+    },
+    anyIncrement() {
+      this.playedany++;
+    },
+    setWinPercentage() {
+      this.winpercentage = Math.floor(Math.random() * 100)
+    },
+    genLoser() {
+      let num = Math.floor(Math.random() * 10) + 1;
+      if (this.picks.includes(num) || this.fireball === num) {
+          this.genLoser();
+      } else {
+        this.loser = num;
+      }
+    }
   },
 });
