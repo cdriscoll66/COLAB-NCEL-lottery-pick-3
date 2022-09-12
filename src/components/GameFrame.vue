@@ -57,6 +57,7 @@ const optOut = () => {
   ClickSound()
   store.hideFireball()
   store.noFireball()
+  store.genFireball()
   store.showResults()
 }
 
