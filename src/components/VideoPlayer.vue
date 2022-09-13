@@ -37,7 +37,7 @@ const spitOut = () => {
 <style scoped>
 #vid {position: absolute;
 z-index: -1;
-top: -40px;
+top: -54px;
 left: 0;
 width: 100%;
 background-color: var(--color-green-darkest);
