@@ -13,6 +13,7 @@ export const gamesStore = defineStore("games", {
     presentgame: null, // exact or any
     presentrules: null, // diff, same, 2 or 1
     prizemoney: 0,
+    fireprizemoney: 166,
     playedexact: 0,
     playedany: 0,
     winpercentage: null,
@@ -153,15 +154,26 @@ export const gamesStore = defineStore("games", {
       this.playedany++;
     },
     setWinPercentage() {
-      this.winpercentage = Math.floor(Math.random() * 100)
+      if (this.presentgame === "exact" && this.playedexact == 0) {
+        this.winpercentage = 20;
+        this.playedexact++;
+      } else if (this.presentgame === "any" && this.playedany == 0) {
+        this.winpercentage = 20;
+        this.playedany++;
+      } else {
+        this.winpercentage = Math.floor(Math.random() * 100)
+      }
     },
     genLoser() {
       let num = Math.floor(Math.random() * 10) + 1;
       if (this.picks.includes(num) || this.fireball === num) {
-          this.genLoser();
+        this.genLoser();
       } else {
         this.loser = num;
       }
+    },
+    changeWinnerToFireball(num) {
+      this.finalwinners[num] = this.finalfireball;
     }
   },
 });

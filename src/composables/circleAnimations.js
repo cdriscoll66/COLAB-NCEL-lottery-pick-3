@@ -1,5 +1,6 @@
 import gsap from 'gsap'
 
+
 export function circleAnimation () {
     let tl1 = gsap.timeline({
       repeat: 0,
@@ -69,8 +70,7 @@ export function circleAnimation () {
   tl1.to('#number-1', {  duration: 1, borderColor: 'gold', ease: 'power1.inOut', })
   tl1.to('#pick-0 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() }, })
   }
-
-
+    
 
   const bubble = () => {
     let bubble = new Audio('../audio/sprite/bubble-pop.mp3')

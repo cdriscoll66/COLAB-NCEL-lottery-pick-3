@@ -17,7 +17,7 @@ export function calcWinners() {
       if (store.winpercentage < 75) {
         store.finalwinners = [store.picks[2], store.picks[0], store.picks[1]];
       } else {
-        store.finalwinners = [store.picks[2], store.picks[1], store.fireball];
+        store.finalwinners = [store.picks[2], store.picks[0], store.fireball];
       }
     }
   } else {
