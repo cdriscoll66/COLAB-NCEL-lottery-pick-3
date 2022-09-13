@@ -1,7 +1,7 @@
 <script setup>
 import gsap from 'gsap';
 import { onMounted } from 'vue';
-import Logo from '../assets/pick3plusfireball-logo.png'
+import Fireball from '../assets/fireball.png'
 import { gamesStore } from '@/store/GamesStore'
 
 const store = gamesStore();
@@ -22,7 +22,7 @@ onMounted(() => {
     tl.to('#hl2', {duration: .0, opacity: 0, y: 50});
     tl.to('#hl3', {duration: .0, opacity: 0, y: 50});
     tl.to('#logo', {duration: .0, opacity: 0, y: 50});
-    tl.to('#next-btn', {duration: .0, opacity: 0, y: 50});
+    // tl.to('#next-btn', {duration: .0, opacity: 0, y: 50});
     tl.to('#hl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
         jackpot.play();
     }});
@@ -30,7 +30,7 @@ onMounted(() => {
     tl.to ('#hl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#hl3', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#logo', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#next-btn', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    // tl.to ('#next-btn', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
 
  });
 
@@ -43,27 +43,17 @@ onMounted(() => {
 <template>
 <div class="reward-wrapper">
 <div><h2 id="hl1">You won</h2></div>
-<div class="reward__amt"><h2 id="hl2">${{ store.prizemoney }}</h2></div>
+<div class="reward__amt"><h2 id="hl2">${{ store.fireprizemoney }}</h2></div>
 <div><h2 id="hl3">playing</h2></div>
-<div><img
-          width="256"
-          height="102"
-          id="logo"
-          alt="Pick 3 Plus Fireball logo"
-          :src="Logo"
-        /></div>
+<div><img id="logo" width="183" height="21" alt="Fireball" :src="Fireball" />
+</div>
 
-    <a id="next-btn" v-if="(store.fireballselected)" href @click.prevent="nextScreen(-1)" class="accent-button one-line">
-      <div>
-        <span class="button__title">View Fireball Drawing</span>
-      </div>
-    </a>
 </div>
 </template>
 
 <style scoped>
 
-#hl1, #hl2, #hl3, #logo, #next-btn {
+#hl1, #hl2, #hl3, #logo {
     opacity: 0;
     /* transform: translateY(50px); */
 }

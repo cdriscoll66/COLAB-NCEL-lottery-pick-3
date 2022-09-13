@@ -6,6 +6,9 @@ import Fireball from '../assets/fireball.png'
 import WinnerFlourish from './WinnerFlourish.vue'
 import BetterLuck from './BetterLuck.vue'
 import RewardScreen from './RewardScreen.vue'
+import FireballReward from './FireballReward.vue'
+import TotalReward from './TotalReward.vue'
+import LoseFireball from './LoseFireball.vue'
 import FinalScreen from './FinalScreen.vue'
 import {calcWinners} from '../composables/calcWinners'
 import {bloopFirstTwoExact, bloopThreeAny, bloopFirstTwoAny, bloopThreeExact} from '../composables/circleAnimations'
@@ -14,6 +17,7 @@ const store = gamesStore()
 
 const state = reactive({
   finalScreens: 0,
+  showFireball: false,
 })
 
 const failsound = new Audio('../audio/sprite/gamefail.mp3');
@@ -27,10 +31,9 @@ onMounted(() => {
 
   // fade in system
   tl.to('#picks', {duration: .0, opacity: 0, y: 50});
-    // tl.to('#fireball__row', {duration: .0, opacity: 0,  y: 50});
-    tl.to('#winning', {duration: .0, opacity: 0, y: 50});
-    tl.to ('#picks', {duration: .5, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#winning', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
+  tl.to('#winning', {duration: .0, opacity: 0, y: 50});
+  tl.to ('#picks', {duration: .5, opacity: 1, y: 0, ease: 'power1.inOut'});
+  tl.to ('#winning', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
 
       // circle numbers Bloops
       if (store.fireballselected == false) {
@@ -57,18 +60,39 @@ onMounted(() => {
       
       // first Winner/Loser Flourish
       if ( (store.fireballselected === false && store.winpercentage > 75) || (store.fireballselected === true && (store.winpercentage > 75 || store.winpercentage > 25 && store.winpercentage <= 50)) ) {
-        tl.to('#winning', {duration: 3, onComplete: () => {failsound.play() }});
-        tl.to('#winning', {duration: 3, onComplete: () => {continueAnimation1()}});
+        tl.to('#winning', {duration: 3, onComplete: () => {failsound.play(); state.finalScreens = -1}});
+        tl.to('#winning',{ duration: 3, onComplete: () => { continueAnimation1() }});
       } else {
-        tl.to('#winning', {duration: 3, onComplete: () => {state.finalScreens = 1 }});
-        tl.to('#winning', {duration: 3, onComplete: () => {continueAnimation1()}});
+        tl.to('#winning', {duration: 3, onComplete: () => {state.finalScreens = 1}});
+        tl.to('#winning', {duration: 3, onComplete: () => {state.finalScreens = 2}});
+        if  (!store.fireballselected) {
+          tl.to('#winning', {duration: 4, onComplete: () => {state.finalScreens = 5}});
+        }
       };
 });
 
 const continueAnimation1 = () => {
+  state.showFireball = true
   state.finalScreens = 0;
   if (store.fireballselected) {
+    let tlcontinue = gsap.timeline({
+        repeat: 0,
+      })
       fireballAnimation();
+
+     if (store.winpercentage > 75) {
+      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = -2}});
+      tlcontinue.to("#winning", {duration: 3, onComplete: () => {state.finalScreens = 5}});
+     } else if (store.winpercentage > 50) {
+      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = -2}});
+      tlcontinue.to("#winning", {duration: 4, onComplete: () => {state.finalScreens = 4}});
+      tlcontinue.to("#winning", {duration: 8, onComplete: () => {state.finalScreens = 5}});
+     } else {
+      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = 3}});
+      tlcontinue.to("#winning", {duration: 4, onComplete: () => {state.finalScreens = 4}});
+      tlcontinue.to("#winning", {duration: 8, onComplete: () => {state.finalScreens = 5}});
+    }
+
   } else {
       if(store.winpercentage < 75) {
         state.finalScreens = 2;
@@ -76,46 +100,60 @@ const continueAnimation1 = () => {
         state.finalScreens = -1;
       }
       setTimeout(() => {
-        state.finalScreens = 3;
-    }, 4000);
+        state.finalScreens = 5;
+    }, 2000);
   }
 };
 
 const fireballAnimation = () => {
-  let tlfire = gsap.timeline({
-    repeat: 0,
-  })
-  // fireball loser
-  if (store.winpercentage < 50) {
-    fireballLoser();
-  } else if (store.gamerules === 'exact') {
-    fireballWinnerLast();
-  } else {
-    fireballWinnerSecond();
+      let tlfire = gsap.timeline({
+        repeat: 0,
+      })
+      tlfire.to('#fireball__row', {duration: .0, opacity: 1, x: -400});
+      tlfire.to('#fireball__row', {duration: 1.5, x: 0, delay: 1, ease: 'elastic.out'});
+      tlfire.to('#fireball div span', {duration: .3, opacity: 1, ease: 'power1.out'});
+    
+      if (store.winpercentage > 50) {
+        tlfire.to('#winning', {duration: .1, onComplete: () => { failsound.play() }});
+      } else {
+        tlfire.to('#fireball div span', {duration: .2, x: 117, y: 125, rotate: 450, ease: 'linear.out'});
+        tlfire.to('#fireball div span', {duration: .3, x: 420, y: -25, rotate: -180, ease: 'power1.out'});
+        tlfire.to('#number-2 div', {duration: .2, color: "white", background: "radial-gradient(56% 56% at 53.18% 22.76%, #CD2B2B 0%, #D25A5A 59%, #B73535 72%, #CD2B2B 87%, #BF2626 100%)", delay: -.1, ease: 'power1.out', onStart: () => { store.changeWinnerToFireball(2) }});
+        tlfire.to('#number-2', {  duration: 1, delay: -.2, borderColor: 'gold', ease: 'power1.inOut', }) 
+        if (store.presentgame === "exact") {
+            //in the exact games the pick that changes is 3rd in any it's 2nd
+            tlfire.to('#pick-2 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
+            }
+            else {
+            tlfire.to('#pick-1 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
+          }
+      } 
   }
-}
 
 
 
+const nextScreen = (num) => {
+    state.finalScreens = num;
+    continueAnimation1();
+  }
 
-
+  const bubble = () => {
+    let bubble = new Audio('../audio/sprite/bubble-pop.mp3')
+    bubble.play()
+  };
 
 
 </script>
 
 <template>
-
-
-
-
   <div class="wrapper">
 
-    <div v-if="store.fireballselected" id="fireball__row" class="fireball__row">
+    <div v-show="store.fireballselected && state.showFireball" id="fireball__row" class="fireball__row">
       <div class="title">
         <img width="183" height="21" alt="Fireball" :src="Fireball" />
       </div>
       <div id="fireball" class="number fireball">
-        <div><span>{{ store.finalfireball }}</span></div>
+        <div><p>{{ store.finalfireball }}</p><span>{{ store.finalfireball }}</span></div>
       </div>
     </div>
 
@@ -163,15 +201,20 @@ const fireballAnimation = () => {
   </div>
   <Transition>
   <WinnerFlourish v-if="state.finalScreens === 1" />
-  <RewardScreen v-else-if="state.finalScreens === 2" />
-  <BetterLuck v-else-if="state.finalScreens === -1" />
-  <FinalScreen v-else-if="state.finalScreens === 3" />
+  <RewardScreen v-else-if="state.finalScreens === 2" @next-screen="nextScreen"/>
+  <BetterLuck v-else-if="state.finalScreens === -1" @next-screen="nextScreen" />
+  <LoseFireball v-else-if="state.finalScreens === -2" />
+  <FireballReward v-else-if="state.finalScreens === 3" />
+  <TotalReward v-else-if="state.finalScreens === 4" />
+  <FinalScreen v-else-if="state.finalScreens === 5" />
   </Transition>
 
 </template>
 
 <style scoped>
 #winning,
+#fireball__row,
+#fireball span,
 #picks {
   opacity: 0;
 }
@@ -181,6 +224,7 @@ const fireballAnimation = () => {
   flex-direction: column;
   justify-content: space-around;
   height: 100%;
+  overflow: hidden;
 }
 
 h3 span {
@@ -235,20 +279,39 @@ h3 span {
 }
 
 .fireball div {
-  background: radial-gradient(
-    56% 56% at 53.18% 22.76%,
-    #cd2b2b 0%,
-    #d25a5a 59%,
-    #b73535 72%,
-    #cd2b2b 87%,
-    #bf2626 100%
-  );
+  background-image: url("../assets/fireball-new.png");
   color: var(--vt-c-white);
+  height: 69px;
+  width: 125px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 0;
+
 }
 
-.fireball div span {
+.fireball div span, .fireball div > p {
+  position: absolute;
   font-weight: 700;
+  font-size: 24px;
+  transform: translate(25px, -5px);
+  background-color: #e02826;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .fireball div > p {
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  color: var(--vt-c-white);
+
+} */
+
+
 
 .yours div {
   background: none;

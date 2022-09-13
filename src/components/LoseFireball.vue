@@ -3,10 +3,8 @@ import gsap from 'gsap';
 import { gamesStore } from '@/store/GamesStore';
 import { onMounted } from 'vue';
 import Logo from '../assets/pick3plusfireball-logo.png';
+import Fireball from '../assets/fireball.png'
 
-const store = gamesStore()
-
-const emit = defineEmits(['next-screen']);
 
 onMounted(() => {
     let tl = gsap.timeline({
@@ -33,20 +31,9 @@ onMounted(() => {
 <template>
 <div class="reward-wrapper">
 <div><h2 id="hl1">You didn't win</h2></div>
-<div><img
-          width="256"
-          height="102"
-          id="logo"
-          alt="Pick 3 Plus Fireball logo"
-          :src="Logo"
-        /></div>
+<div><img id="logo" width="183" height="21" alt="Fireball" :src="Fireball" /></div>
 <div>
-    <a v-if="(store.fireballselected)" href @click.prevent="nextScreen(-1)" id="hl2" class="accent-button one-line">
-      <div>
-        <span class="button__title">Play Fireball Drawing</span>
-      </div>
-    </a>
-    <h2 v-else class="betterluck" id="hl2">Better Luck Next Time!</h2></div>
+    <h2 class="betterluck" id="hl2">Better Luck Next Time!</h2></div>
 
 
 </div>
