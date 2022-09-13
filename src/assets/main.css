@@ -69,6 +69,10 @@ a.btn-gray:hover {
   text-shadow: -1px 1px 1px var(--color-green-darkest);
 }
 
+.one-line .button__title {
+  font-size: 18px;
+}
+
 .button__subtitle {
   font-size: 14px;
   line-height: 1.2;
