@@ -313,6 +313,7 @@ const handleToc = (i) => {
 
 .progress-bar {
   background-color: var(--color-green-darkest);
+  min-height: 54px;
 }
 
 h1 {

@@ -28,7 +28,7 @@ const spitOut = () => {
 </script>
 
 <template>
-    <video id="vid" ref="vid" width="480" height="854" autoplay muted preload="none" @timeupdate='spitOut()'>
+    <video id="vid" ref="vid" width="375" height="522" autoplay muted preload="none" @timeupdate='spitOut()'>
       <source :src='props.onscreen' type="video/mp4">
     Your browser does not support the video tag.
     </video>
@@ -37,7 +37,7 @@ const spitOut = () => {
 <style scoped>
 #vid {position: absolute;
 z-index: -1;
-top: -54px;
+bottom: 0;
 left: 0;
 width: 100%;
 background-color: var(--color-green-darkest);
