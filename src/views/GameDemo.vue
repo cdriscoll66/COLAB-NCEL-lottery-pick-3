@@ -5,6 +5,7 @@ import BgStars from '../components/BgStars.vue'
 import EighteenModal from '../components/EighteenModal.vue'
 import GameFrame from '../components/GameFrame.vue'
 import { ClickSound } from '../composables/sfx';
+import PrizeModal from '../components/PrizeModal.vue'
 
 import ProTip from '../components/ProTipModal.vue'
 
@@ -17,6 +18,7 @@ const store = gamesStore()
 
 const state = reactive({
   showProTip: false,
+  showPrize: false
 })
 
 const closeModal = () => {
@@ -32,6 +34,16 @@ const closeProTip = () => {
 const openProTip = () => {
   ClickSound();
   state.showProTip = true
+}
+
+const closePrize = () => {
+  ClickSound()
+  state.showPrize = false
+}
+
+const openPrize = () => {
+  ClickSound();
+  state.showPrize = true
 }
 
 const chooseGame = (game) => {
@@ -54,7 +66,7 @@ onMounted(() => {
     ></EighteenModal>
 
     <div v-if="(store.presentgame)" class="game-exact">
-      <GameFrame @protip="state.showProTip = true"></GameFrame>
+      <GameFrame @protip="state.showProTip = true" @prize="state.showPrize = true"></GameFrame>
     </div>
 
     <div v-else class="game-select">
@@ -62,7 +74,7 @@ onMounted(() => {
         <a class="small-btn" href @click.prevent="openProTip">
           Pro Tip
         </a>
-        <a class="small-btn" href="https://nclottery.com/pick3-how-to-play" target="_blank">
+        <a class="small-btn" href @click.prevent="openPrize">
           Prizes & Odds
         </a>
       </div>
@@ -77,13 +89,15 @@ onMounted(() => {
         </div>
         <div class="info-point">
           <p>
-            There are LOTS of way to play Pick 3. Try a popular option above,
+            There are MANY way to play Pick 3. Try a popular option above,
             then explore the rest at NCLottery.com.
           </p>
         </div>
       </div>
     </div>
     <ProTip v-show="(state.showProTip)" @close="closeProTip" />
+    <PrizeModal v-show="(state.showPrize)" @close="closePrize" />
+
     <BgStars green="true" />
   </main>
 </template>

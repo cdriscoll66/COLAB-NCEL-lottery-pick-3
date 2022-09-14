@@ -6,7 +6,7 @@ import Fireball from '../assets/fireball.png'
 import Logo from '../assets/pick3plusfireball-logo.png'
 import { ClickSound } from '../composables/sfx';
 
-const emit = defineEmits(['music', 'musicplaypause', 'protip'])
+const emit = defineEmits(['music', 'musicplaypause', 'protip', 'prize'])
 
 const store = gamesStore()
 
@@ -76,7 +76,7 @@ const chooseRules = (num) => {
   <div class="btn-row" v-if="(store.presentrules === null && store.gamerules)"></div>
   <div class="btn-row" v-else>
     <a class="small-btn" href @click.prevent="emit('protip')">Pro Tip</a>
-    <a class="small-btn" href="https://nclottery.com/pick3-how-to-play" target="_blank">
+    <a class="small-btn" href @click.prevent="emit('prize')">
       Prizes & Odds
     </a>
   </div>
@@ -92,7 +92,7 @@ const chooseRules = (num) => {
     <div class="rules-select__list">
       
       <div class="playtype-select__note">
-    <p>There are lots of ways to play pick 3. Choose one of these most popular ways to learn how the game is played.</p>
+    <p>There are MANY ways to play pick 3. Choose one of these most popular ways to learn how the game is played.</p>
     </div>
       <a href @click.prevent="chooseRules(0)">Pick Different Numbers</a>
       <a

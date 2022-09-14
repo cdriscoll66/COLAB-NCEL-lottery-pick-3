@@ -188,7 +188,6 @@ nav a {
   flex-flow: column nowrap;
   padding: 0 .75rem;
   color: var(--vt-c-white);
-  text-shadow: 0px 0px 1px rgba(11, 206, 101, 0.5);
 }
 nav a span.nav-icon {
   margin-top: 5px;

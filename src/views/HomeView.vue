@@ -74,14 +74,14 @@ const onLeave = (path) => {
 
     <a id="demobtn" href @click.prevent="onLeave('game')" class="accent-button">
       <div id="demobtntxt">
-        <span class="button__title">Try Your Luck</span>
-        <span class="button__subtitle">Play Demo Game</span>
+        <span class="button__title">Try the Game</span>
+        <span class="button__subtitle">Play Demo</span>
       </div>
     </a>
     <div class="home-warnings">
       <p id="sound-warning">This experience has sound</p>
       <p id="age-warning">
-        MUST BE 18 TO PLAY. Odds to win a Pick 3 prize range from 1 in 100 to 1 in 1,000. Odds to win a Pick 3 Fireball prize range from 1 in 37 to 1 in 10,000.<br /> Problem Gambling Helpline: 877-718-5543
+        MUST BE 18 TO PLAY. Odds to win a Pick 3 prize range from <br />1 in 100 to 1 in 1,000. Odds to win a Pick 3 Fireball prize range from 1 in 37 to 1 in 10,000.<br /> Problem Gambling Helpline: 877-718-5543
       </p>
     </div>
     <div class="transition-stars">
