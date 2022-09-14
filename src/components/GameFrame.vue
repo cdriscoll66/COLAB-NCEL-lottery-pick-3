@@ -210,7 +210,7 @@ h2 {
   margin-top: 30px;
   margin-bottom: 30px;
   color: var(--vt-c-white);
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .game h2 {

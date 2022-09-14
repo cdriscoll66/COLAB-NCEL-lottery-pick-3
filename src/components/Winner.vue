@@ -81,16 +81,16 @@ const continueAnimation1 = () => {
       fireballAnimation();
 
      if (store.winpercentage > 75) {
-      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = -2}});
-      tlcontinue.to("#winning", {duration: 3, onComplete: () => {state.finalScreens = 5}});
+      tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = -2}});
+      tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 5}});
      } else if (store.winpercentage > 50) {
-      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = -2}});
-      tlcontinue.to("#winning", {duration: 4, onComplete: () => {state.finalScreens = 4}});
-      tlcontinue.to("#winning", {duration: 8, onComplete: () => {state.finalScreens = 5}});
+      tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = -2}});
+      tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 4}});
+      tlcontinue.to("#winning", {duration: 9, onComplete: () => {state.finalScreens = 5}});
      } else {
-      tlcontinue.to("#winning", {duration: 4.5, onComplete: () => {state.finalScreens = 3}});
-      tlcontinue.to("#winning", {duration: 4, onComplete: () => {state.finalScreens = 4}});
-      tlcontinue.to("#winning", {duration: 8, onComplete: () => {state.finalScreens = 5}});
+      tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = 3}});
+      tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 4}});
+      tlcontinue.to("#winning", {duration: 9, onComplete: () => {state.finalScreens = 5}});
     }
 
   } else {

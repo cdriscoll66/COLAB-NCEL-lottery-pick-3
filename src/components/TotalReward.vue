@@ -36,7 +36,7 @@ onMounted(() => {
     tl.to('#wonfire', {duration: .0, opacity: 0, y: 50});
     tl.to ('#wonbase', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#wonfire', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#wonbase', {duration: .5, });
+    tl.to ('#wonbase', {duration: 2, });
     tl.to ('#wonbase', {duration: .3, y: -1000, ease: 'power1.inOut'});
     tl.to ('#wonfire', {duration: .3, y: 1000, delay: -.3, ease: 'power1.inOut',});
     tl.to ('#wonbase', {duration: .5, onComplete: () => {

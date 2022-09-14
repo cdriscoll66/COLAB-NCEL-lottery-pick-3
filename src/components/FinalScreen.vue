@@ -16,8 +16,8 @@ const resetGame = () => {
 
 <template>
 <div class="wrapper">
-<h2>What's your <br />next move?</h2>
     <div class="btns">
+      <h2>What's your <br />next move?</h2>
     <a href @click.prevent="resetGame" class="accent-button one-line">
       <div>
         <span class="button__title">Play Again</span>

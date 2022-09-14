@@ -125,6 +125,10 @@ onMounted(() => {
   height: 100%;
 }
 
+.rules-select__container {
+  justify-content: center;
+}
+
 .game-select__list,
 .rules-select__list {
   display: flex;

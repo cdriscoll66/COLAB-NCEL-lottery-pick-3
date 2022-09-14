@@ -336,9 +336,13 @@ h1 {
   height: 100%;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: flex-start;
   margin: 0 20%;
+}
+
+.table-of-contents li {
+  margin-bottom: 44px;
 }
 .table-of-contents ul li a {
   font-weight: bold;

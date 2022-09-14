@@ -103,7 +103,7 @@ const Music = (song) => {
           <span class="nav-icon">
             <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
           </span>
-          <span>Chapters</span>
+          <span>Learn</span>
         </a>
         </span>
 
@@ -200,9 +200,9 @@ nav .nav-icon:after {
   height: 3px;
   margin: 0 auto;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.16);
-  box-shadow: 0 0 3px rgb(0 0 0 / 16%);
+  background-color: rgba(18, 18, 18, 0.3);
   transition: transform 0.4s;
+  filter: blur(2.71828px);
 }
 
 nav a:first-of-type {
@@ -216,7 +216,7 @@ nav a:first-of-type {
   width: 92px;
   height: 74px !important;
   margin: 0 6px -25px;
-  padding: 6px 10px 8px !important;
+  padding: 2px 10px 8px !important;
   border-radius: 0 0 20px 20px;
   background-color: var(--color-green-light);
   position: relative;
@@ -227,7 +227,6 @@ nav a:first-of-type {
   font-size: 12px;
   font-weight: 700;
   font-style: italic;
-  margin-top: 3px;
 }
 
 .top-right,
