@@ -1,5 +1,5 @@
 <script setup>
-import { reactive } from 'vue'
+import { reactive, onMounted } from 'vue'
 import { tutorialStore } from '@/store/TutorialsStore'
 
 import PlayBtn from '../assets/play.svg'
@@ -14,7 +14,9 @@ const emit = defineEmits(['music', 'musicplaypause'])
 
 const store = tutorialStore()
 
-
+onMounted(() => {
+  emit('music', '/audio/3FunkShortVersion.mp3')
+});
 
 
 const state = reactive({
