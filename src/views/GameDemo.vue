@@ -96,7 +96,7 @@ onMounted(() => {
       </div>
     </div>
     <ProTip v-show="(state.showProTip)" @close="closeProTip" />
-    <PrizeModal v-show="(state.showPrize)" @close="closePrize" />
+    <PrizeModal v-show="(state.showPrize)" @close-prize="closePrize" />
 
     <BgStars green="true" />
   </main>

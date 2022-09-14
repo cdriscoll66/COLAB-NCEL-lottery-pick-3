@@ -12,7 +12,7 @@
       <div class="modal">
         <div class="modal__content">
           <div class="close">
-            <a href class="small-btn" @click.prevent="emit('close')">
+            <a href class="small-btn" @click.prevent="emit('close-prize')">
               <img :src="X" alt="close" />Close Prizes & Odds
             </a>
         </div>
