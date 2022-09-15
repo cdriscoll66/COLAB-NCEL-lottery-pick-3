@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const gamesStore = defineStore("games", {
   state: () => ({
-    count: 0,
+    showtoc: false,
     ismuted: false,
     iseighteen: false,
     showfireball: false,
@@ -45,8 +45,8 @@ export const gamesStore = defineStore("games", {
     ],
   }),
   actions: {
-    increment() {
-      this.count++;
+    toggleTOC() {
+      this.showtoc = !this.showtoc
     },
     confirmEighteen() {
       this.iseighteen = true;

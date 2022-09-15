@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, onMounted } from 'vue'
-import { tutorialStore } from '@/store/TutorialsStore'
+import { gameStore } from '@/store/GameStore'
 
 import PlayBtn from '../assets/play.svg'
 import PauseBtn from '../assets/pause.svg'
@@ -12,7 +12,7 @@ import { ClickSound } from '../composables/sfx'
 
 const emit = defineEmits(['music', 'musicplaypause'])
 
-const store = tutorialStore()
+const store = gameStore()
 
 onMounted(() => {
   emit('music', '/audio/3FunkShortVersion.mp3')

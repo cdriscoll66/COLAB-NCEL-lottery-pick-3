@@ -1,7 +1,7 @@
 <script setup>
 import { onBeforeMount, reactive, computed } from 'vue'
 import { RouterLink, RouterView, useRoute, onBeforeRouteUpdate } from 'vue-router'
-import { tutorialStore } from '@/store/TutorialsStore'
+import { gameStore } from '@/store/GameStore'
 import HomeIcon from './assets/home.png'
 import LearnIcon from './assets/menu.png'
 import PlayIcon from './assets/play.png'
@@ -9,7 +9,7 @@ import MuteIcon from './assets/sound.png'
 import CloseIcon from './assets/close.png'
 import { ClickSound } from './composables/sfx.js'
 
-const store = tutorialStore()
+const store = gameStore()
 
 
 // this resizes the screen to whatever screen it's on.
