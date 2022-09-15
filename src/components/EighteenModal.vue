@@ -1,8 +1,9 @@
 <script setup>
 import BgStars from '../components/BgStars.vue';
 import { ClickSound } from '../composables/sfx';
+import { gamesStore } from '@/store/GamesStore'
 
-
+const store = gamesStore();
 const emit = defineEmits(['confirm-yes']);
 
 

@@ -8,6 +8,10 @@ import Greenstar from '../assets/star-green.svg';
 import Higreenstar from '../assets/star-higreen.svg';
 import Goldstar from '../assets/star-gold.svg';
 import { ClickSound } from '../composables/sfx';
+import { gamesStore } from '@/store/GamesStore'
+
+
+const store = gamesStore();
 
 const router = useRouter();
 const route = useRoute();
