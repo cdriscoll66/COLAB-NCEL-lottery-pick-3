@@ -3,7 +3,9 @@ import gsap from 'gsap';
 import { loadFull } from "tsparticles";
 import { Triumph } from '../composables/sfx';
 import { onMounted } from 'vue';
+import { gamesStore } from '@/store/GamesStore'
 
+const store = gamesStore();
 
 const particlesInit = async (engine) => {
   await loadFull(engine);
