@@ -88,7 +88,8 @@ const continueAnimation1 = () => {
       tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 4}});
       tlcontinue.to("#winning", {duration: 9, onComplete: () => {state.finalScreens = 5}});
      } else {
-      tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = 3}});
+      tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = 1}});
+      tlcontinue.to("#winning", {duration: 3, onComplete: () => {state.finalScreens = 3}});
       tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 4}});
       tlcontinue.to("#winning", {duration: 9, onComplete: () => {state.finalScreens = 5}});
     }
@@ -115,19 +116,20 @@ const fireballAnimation = () => {
     
       if (store.winpercentage > 50) {
         tlfire.to('#winning', {duration: .1, onComplete: () => { failsound.play() }});
+      } else if (store.presentgame === "exact") {
+        tlfire.to('#fireball div span', {duration: .2, x: 117, y: 125, rotate: 450, ease: 'linear.out'});
+        tlfire.to('#fireball div span', {duration: .3, x: 420, y: -25, rotate: -180, ease: 'power1.out'});
+        tlfire.to('#number-2 div', {duration: .2, color: "white", background: "radial-gradient(56% 56% at 53.18% 22.76%, #CD2B2B 0%, #D25A5A 59%, #B73535 72%, #CD2B2B 87%, #BF2626 100%)", delay: -.1, ease: 'power1.out', onStart: () => { store.changeWinnerToFireball(2) }});
+        tlfire.to('#number-2', {  duration: 1, delay: -.2, borderColor: 'gold', ease: 'power1.inOut', }) 
+        tlfire.to('#pick-2 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
+
       } else {
         tlfire.to('#fireball div span', {duration: .2, x: 117, y: 125, rotate: 450, ease: 'linear.out'});
         tlfire.to('#fireball div span', {duration: .3, x: 420, y: -25, rotate: -180, ease: 'power1.out'});
         tlfire.to('#number-2 div', {duration: .2, color: "white", background: "radial-gradient(56% 56% at 53.18% 22.76%, #CD2B2B 0%, #D25A5A 59%, #B73535 72%, #CD2B2B 87%, #BF2626 100%)", delay: -.1, ease: 'power1.out', onStart: () => { store.changeWinnerToFireball(2) }});
         tlfire.to('#number-2', {  duration: 1, delay: -.2, borderColor: 'gold', ease: 'power1.inOut', }) 
-        if (store.presentgame === "exact") {
-            //in the exact games the pick that changes is 3rd in any it's 2nd
-            tlfire.to('#pick-2 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
-            }
-            else {
-            tlfire.to('#pick-1 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
-          }
-      } 
+        tlfire.to('#pick-2 div', { duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { bubble() } })
+      }
   }
 
 

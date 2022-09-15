@@ -31,42 +31,35 @@ const state = reactive({
           id: 1,
           title: 'Prizes',
           video: '/video/01-01.mp4',
-          length: 15.04,
+          length: 16.02,
           marker: 0,
         },
         {
           id: 2,
           title: 'Exact',
           video: '/video/01-02.mp4',
-          length: 10.539,
+          length: 11.54,
           marker: 0,
         },
         {
           id: 3,
           title: 'Any Order',
           video: '/video/01-03.mp4',
-          length: 10.54,
-          marker: 0,
-        },
-        {
-          id: 4,
-          title: '50/50',
-          video: '/video/01-04.mp4',
           length: 11.54,
           marker: 0,
         },
         {
-          id: 5,
+          id: 4,
           title: 'Fireball',
-          video: '/video/01-05.mp4',
-          length: 13.035,
+          video: '/video/01-04.mp4',
+          length: 14.037,
           marker: 0,
         },
         {
-          id: 6,
+          id: 5,
           title: 'More Ways to Win',
-          video: '/video/01-06.mp4',
-          length: 10.03,
+          video: '/video/01-05.mp4',
+          length: 11.029,
           marker: 0,
         },
       ],
@@ -75,52 +68,52 @@ const state = reactive({
       subject: 'How to Play',
       videos: [
         {
-          id: 7,
+          id: 6,
           title: 'Playslip',
           video: '/video/02-01.mp4',
           length: 9.49,
           marker: 0,
         },
         {
-          id: 8,
+          id: 7,
           title: 'Play Type',
           video: '/video/02-02.mp4',
           length: 7.04,
           marker: 0,
         },
         {
-          id: 9,
+          id: 8,
           title: 'Selecting Numbers',
           video: '/video/02-03.mp4',
           length: 6.12,
           marker: 0,
         },
         {
-          id: 10,
+          id: 9,
           title: 'Quick Pick',
           video: '/video/02-04.mp4',
           length: 10.03,
           marker: 0,
         },
         {
-          id: 11,
+          id: 10,
           title: 'Selecting Drawings',
           video: '/video/02-05.mp4',
-          length: 10.03,
+          length: 7.04,
           marker: 0,
         },
         {
-          id: 12,
+          id: 11,
           title: 'Wager',
           video: '/video/02-06.mp4',
-          length: 7.04,
+          length: 12.032,
           marker: 0,
         },        
         {
-          id: 13,
+          id: 12,
           title: 'Fireball',
           video: '/video/02-07.mp4',
-          length: 14.04,
+          length: 15.04,
           marker: 0,
         },
       ],
@@ -129,14 +122,14 @@ const state = reactive({
       subject: 'Ticket Details',
       videos: [
         {
-          id: 14,
+          id: 13,
           title: 'Ticket Front',
           video: '/video/03-01.mp4',
-          length: 13.03,
+          length: 16.02,
           marker: 0,
         },
         {
-          id: 15,
+          id: 14,
           title: 'Ticket Back',
           video: '/video/03-02.mp4',
           length: 8.02,
@@ -148,31 +141,38 @@ const state = reactive({
       subject: 'See if You\'ve Won',
       videos: [
       {
-          id: 16,
+          id: 15,
           title: 'Find Results',
           video: '/video/04-01.mp4',
-          length: 17.536,
+          length: 21.0347,
           marker: 0,
         },
         {
-          id: 17,
+          id: 16,
           title: 'Fireball (Two Clips)',
           video: '/video/04-02.mp4',
           length: 13.03,
           marker: 0,
         },
         {
-          id: 18,
+          id: 17,
           title: 'Check you Ticket',
           video: '/video/04-03.mp4',
           length: 10.03,
           marker: 0,
         },
         {
-          id: 19,
+          id: 18,
           title: 'Find Past Results',
           video: '/video/04-04.mp4',
           length: 9.536,
+          marker: 0,
+        },
+        {
+          id: 19,
+          title: 'Final Vid',
+          video: '/video/04-05.mp4',
+          length: 10.03,
           marker: 0,
         },
       ],
@@ -185,7 +185,7 @@ const nextVideo = () => {
     state.video + 1 >= state.tuts[state.subject].videos.length &&
     state.subject + 1 == state.tuts.length
   ) {
-    console.log('nothin2.')
+    console.log('end of tutorial')
     return
   } else if (state.video + 1 >= state.tuts[state.subject].videos.length) {
     state.video = 0
@@ -199,10 +199,11 @@ const nextVideo = () => {
 }
 
 const handleEnd = () => {
-  nextVideo()
+  // nextVideo()
 }
 
 const UpdateTime = (timer) => {
+  console.log(timer)
   let timerPercent =
     (timer / state.tuts[state.subject].videos[state.video].length) * 100
   state.tuts[state.subject].videos[state.video].marker = timerPercent
@@ -210,7 +211,7 @@ const UpdateTime = (timer) => {
 
 const prevVideo = () => {
   if (state.video == 0 && state.subject == 0) {
-    console.log('nothin.')
+    console.log('beginning of tutorial')
     return
   } else if (state.video - 1 < 0) {
     state.subject--
