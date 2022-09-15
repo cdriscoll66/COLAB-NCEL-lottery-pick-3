@@ -1,6 +1,6 @@
 <script setup>
 import { reactive, onMounted } from 'vue'
-import { gamesStore } from '@/store/GameStore'
+import { gamesStore } from '@/store/GamesStore'
 
 import PlayBtn from '../assets/play.svg'
 import PauseBtn from '../assets/pause.svg'
