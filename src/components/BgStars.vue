@@ -69,6 +69,12 @@ const props = defineProps(['green', 'gray'], {
   background: linear-gradient(180deg, rgba(0, 61, 31, 1) 15%, rgba(0, 61, 31, 0.5) 25%, rgba(0, 61, 31, 0) 35%);
 }
 
+@media not all and (min-resolution:.001dpcm) { 
+  .green > .bg-stars__inner::after  {
+  background: none;
+    }
+}
+
 .gray > .bg-stars__inner::after {
   position: absolute;
   top: 0;
