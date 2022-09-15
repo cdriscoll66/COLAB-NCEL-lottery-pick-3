@@ -7,16 +7,29 @@ import { gamesStore } from '@/store/GamesStore'
 const store = gamesStore();
 
 const totalwinnings = computed(() => {
-    let val = store.prizemoney + store.fireprizemoney;
-    return val;
+    let val = store.prizemoney + state.fireprizeamount;
+     return val;
+})
+
+const fireprizeamount = computed(() => {
+    let val = null;
+    if (store.winpercentage < 50) {
+        val = store.fireprizemoney;
+    } else {
+     val = 0;
+        }
+     return val;
 })
 
 const state = reactive({
     screen: 1,
     total: store.prizemoney,
     result: totalwinnings,
+    fireprizeamount: fireprizeamount,
 
 })
+
+
 
 
 
@@ -55,8 +68,8 @@ onMounted(() => {
 <template>
 <div class="reward-wrapper">
     <div v-show="state.screen === 1" class="reward-screen-intro">
-        <h2 id="wonbase">You won<br /> <span>${{store.prizemoney}}</span> <br />playing <br />base game</h2>
-        <h2 id="wonfire">and <span>${{store.fireprizemoney}}</span><br /> playing Fireball</h2>
+        <h2 id="wonbase">You won<br /> <span>${{ store.prizemoney }}</span> <br />playing <br />base game</h2>
+        <h2 id="wonfire">and <span>${{ state.fireprizeamount }}</span><br /> playing Fireball</h2>
     </div>
     <div v-show="state.screen === 2" class="reward-screen-intro">
         <div><h2 id="hl1">For a total <br />winnings of</h2></div>
