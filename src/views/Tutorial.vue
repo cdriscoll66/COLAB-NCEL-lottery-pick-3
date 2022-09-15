@@ -199,11 +199,10 @@ const nextVideo = () => {
 }
 
 const handleEnd = () => {
-  // nextVideo()
+  nextVideo()
 }
 
 const UpdateTime = (timer) => {
-  console.log(timer)
   let timerPercent =
     (timer / state.tuts[state.subject].videos[state.video].length) * 100
   state.tuts[state.subject].videos[state.video].marker = timerPercent
@@ -225,13 +224,13 @@ const prevVideo = () => {
 }
 
 const Playpause = () => {
-  ClickSound()
+  if (!store.ismuted) {ClickSound()}
   state.playing = !state.playing
   emit('musicplaypause', state.playing)
 }
 
 const handleToc = (i) => {
-  ClickSound()
+  if (!store.ismuted) {ClickSound()}
   state.subject = i
   state.video = 0
   state.playing = true

@@ -3,12 +3,12 @@ import gsap from 'gsap';
 import { onMounted } from 'vue';
 import Fireball from '../assets/fireball.png'
 import { gamesStore } from '@/store/GamesStore'
+import { Jackpot } from '../composables/sfx';
 
 const store = gamesStore();
 
 const emit = defineEmits(['next-screen']);
 
-const jackpot = new Audio('../audio/sprite/jackpot.mp3');
 
 onMounted(() => {
 
@@ -24,7 +24,7 @@ onMounted(() => {
     tl.to('#logo', {duration: .0, opacity: 0, y: 50});
     // tl.to('#next-btn', {duration: .0, opacity: 0, y: 50});
     tl.to('#hl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
-        jackpot.play();
+        if (!store.ismuted) { Jackpot();}
     }});
     tl.to ('#hl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#hl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});

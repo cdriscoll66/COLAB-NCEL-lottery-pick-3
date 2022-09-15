@@ -7,7 +7,9 @@ import { ClickSound } from '../composables/sfx';
 const store = gamesStore()
 
 const resetGame = () => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   store.resetPicksAndFireball()
   store.setPresentGame(null)
 }

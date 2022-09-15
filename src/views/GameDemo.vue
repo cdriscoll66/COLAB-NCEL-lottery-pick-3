@@ -22,32 +22,32 @@ const state = reactive({
 })
 
 const closeModal = () => {
-  ClickSound();
+  if (!store.ismuted) {ClickSound()}
   store.confirmEighteen()
 }
 
 const closeProTip = () => {
-  ClickSound()
+  if (!store.ismuted) {ClickSound()}
   state.showProTip = false
 }
 
 const openProTip = () => {
-  ClickSound();
+  if (!store.ismuted) {ClickSound()}
   state.showProTip = true
 }
 
 const closePrize = () => {
-  ClickSound()
+  if (!store.ismuted) {ClickSound()}
   state.showPrize = false
 }
 
 const openPrize = () => {
-  ClickSound();
+  if (!store.ismuted) {ClickSound()}
   state.showPrize = true
 }
 
 const chooseGame = (game) => {
-  ClickSound();
+  if (!store.ismuted) {ClickSound()}
   store.setPresentGame(game)
 }
 

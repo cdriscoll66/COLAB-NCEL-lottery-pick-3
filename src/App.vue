@@ -1,14 +1,16 @@
 <script setup>
 import { onBeforeMount, reactive, computed } from 'vue'
-import { RouterLink, RouterView, useRoute } from 'vue-router'
+import { RouterLink, RouterView, useRoute, onBeforeRouteUpdate } from 'vue-router'
 import { tutorialStore } from '@/store/TutorialsStore'
 import HomeIcon from './assets/home.png'
 import LearnIcon from './assets/menu.png'
 import PlayIcon from './assets/play.png'
 import MuteIcon from './assets/sound.png'
 import CloseIcon from './assets/close.png'
+import { ClickSound } from './composables/sfx.js'
 
 const store = tutorialStore()
+
 
 // this resizes the screen to whatever screen it's on.
 onBeforeMount(() => {
@@ -46,12 +48,12 @@ const routeName = computed(() => {
 
 const showTOC = () => {
   store.toggleTOC()
+  onClickNoise()
 }
 
 
 const state = reactive({
   music: '',
-  muted: false,
   preloadImages: [
     '/assets/bg-stars.svg',
     '/assets/bg-stars--green.svg',
@@ -65,7 +67,7 @@ const state = reactive({
 
 const muteToggle = () => {
   bgMusic.muted = !bgMusic.muted;
-  state.muted = !state.muted;
+  store.ismuted = !store.ismuted;
 }
 
 const playToggle = (status) => {
@@ -85,20 +87,28 @@ const Music = (song) => {
   bgMusic.play()
   }
 }
+
+const onClickNoise = () => {
+  if (!store.ismuted) {
+    ClickSound()
+  }
+}
+
+
 </script>
 
 <template>
   <header>
     <div class="nav-wrapper">
       <nav>
-        <RouterLink to="/">
+        <RouterLink to="/" @click="onClickNoise">
           <span class="nav-icon">
             <img width="30" height="30" alt="Home Icon" :src="HomeIcon" />
           </span>
           <span>Home</span>
         </RouterLink>
 
-        <span v-if="routeName == 'tutorial'">
+        <span v-if="routeName == 'tutorial'" >
         <a href @click.prevent="showTOC">
           <span class="nav-icon">
             <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
@@ -108,7 +118,7 @@ const Music = (song) => {
         </span>
 
         <span v-else>
-        <RouterLink to="/tutorial">
+        <RouterLink to="/tutorial" @click="onClickNoise" >
           <span class="nav-icon">
             <img width="30" height="30" alt="Learn Icon" :src="LearnIcon" />
           </span>
@@ -116,7 +126,7 @@ const Music = (song) => {
         </RouterLink>
         </span>
      
-        <RouterLink class="play-icon" to="/game">
+        <RouterLink class="play-icon" to="/game" @click="onClickNoise">
           <span class="nav-icon">
             <img width="40" height="40" alt="Play Icon" :src="PlayIcon" />
             <span class="top-left"></span>
@@ -128,10 +138,10 @@ const Music = (song) => {
           <span class="nav-icon">
             <img width="30" height="30" alt="Mute Icon" :src="MuteIcon" />
           </span>
-          <span v-if="state.muted">Unmute</span>
+          <span v-if="store.ismuted">Unmute</span>
           <span v-else>Mute</span>
         </a>
-        <a href="https://nclottery.com/pick3" target="_blank">
+        <a href="https://nclottery.com/pick3" target="_blank" @click="onClickNoise">
           <span class="nav-icon">
             <img width="30" height="30" alt="Exit Icon" :src="CloseIcon" />
           </span>

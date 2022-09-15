@@ -7,7 +7,9 @@ const emit = defineEmits(['confirm-yes']);
 
 
 const confirmation = () => {
-  ClickSound();
+  if (!store.ismuted) {
+    ClickSound()
+  }
   emit('confirm-yes');
 }
 

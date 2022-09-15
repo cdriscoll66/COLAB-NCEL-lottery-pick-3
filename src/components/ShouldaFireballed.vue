@@ -5,6 +5,8 @@ import gsap from 'gsap'
 import Fireball from '../assets/fireball.png'
 import BetterLuck from './BetterLuck.vue'
 import FinalScreen from './FinalScreen.vue'
+import { FailSound, Bubble } from '../composables/sfx';
+
 
 const store = gamesStore()
 
@@ -14,7 +16,6 @@ const state = reactive({
     fireball: null
 })
 
-const failsound = new Audio('../audio/sprite/gamefail.mp3');
 
 onMounted(() => {
     calcWinners()
@@ -49,27 +50,27 @@ const circleAnimation = () => {
   
 if ((store.presentgame === 'any') && store.presentrules === 2) {
     tl1.to('#number-0', {duration: 1.2, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-2 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-2 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
     tl1.to('#number-1', {duration: 1, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-0 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-0 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
        // fireball fail
-    tl1.to('#number-2', {duration: 1, onComplete: () => {failsound.play()}});
+    tl1.to('#number-2', {duration: 1, onComplete: () => { if (!store.ismuted) {FailSound()}}});
 
     }  else if (store.presentgame === 'exact')  {
     tl1.to('#number-0', {duration: 1.2, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-0 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-0 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
     tl1.to('#number-1', {duration: 1, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-1 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-1 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
            // fireball fail
-    tl1.to('#number-2', {duration: 1, onComplete: () => {failsound.play()}});
+    tl1.to('#number-2', {duration: 1, onComplete: () => { if (!store.ismuted) {FailSound()}}});
 
     } else {
     tl1.to('#number-1', {duration: 1.2, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-0 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-0 div', {duration: 1.2, backgroundColor: 'gold', color: 'black', delay: -1.2, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
     tl1.to('#number-0', {duration: 1, borderColor: 'gold', ease: 'power1.inOut'});
-    tl1.to('#pick-1 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => {bubble()}});
+    tl1.to('#pick-1 div', {duration: 1, backgroundColor: 'gold', color: 'black', delay: -1, ease: 'power1.inOut', onStart: () => { if (!store.ismuted) {Bubble()}}});
           // fireball fail
-    tl1.to('#number-2', {duration: 1, onComplete: () => {failsound.play()}});
+    tl1.to('#number-2', {duration: 1, onComplete: () => { if (!store.ismuted) {FailSound()}}});
 
     }
 
@@ -78,10 +79,7 @@ if ((store.presentgame === 'any') && store.presentrules === 2) {
 
 
 
-const bubble = () => {
-  let bubble = new Audio('../audio/sprite/bubble-pop.mp3');
-  bubble.play();
-}
+
 
 const calcWinners = () => {
   if ((store.presentgame === 'any') && store.presentrules === 2) {

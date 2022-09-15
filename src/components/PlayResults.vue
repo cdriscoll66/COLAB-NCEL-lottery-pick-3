@@ -16,7 +16,9 @@ const state = reactive({
 
 
 const playRewardScreen = () => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   state.showConfirmScreen = false
 }
 

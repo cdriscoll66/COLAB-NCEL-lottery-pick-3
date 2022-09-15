@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const gamesStore = defineStore("games", {
   state: () => ({
     count: 0,
+    ismuted: false,
     iseighteen: false,
     showfireball: false,
     showresults: false,
@@ -185,6 +186,9 @@ export const gamesStore = defineStore("games", {
     },
     changeWinnerToFireball(num) {
       this.finalwinners[num] = this.finalfireball;
+    },
+    toggleMute() {
+      this.ismuted = !this.ismuted;
     }
   },
 });

@@ -1,10 +1,9 @@
 <script setup>
 import gsap from 'gsap';
 import { loadFull } from "tsparticles";
-
+import { Triumph } from '../composables/sfx';
 import { onMounted } from 'vue';
 
-const triumph = new Audio('../audio/sprite/triumph.mp3');
 
 const particlesInit = async (engine) => {
   await loadFull(engine);
@@ -21,7 +20,7 @@ onMounted(() => {
       tl.to('#win3', { delay: 0, duration: 0, opacity: 0 });
 
       tl.to('#win3', { delay: 0, duration: 0.6, opacity: 1, scale: 1.1, ease: 'elastic', onComplete: () => {
-        triumph.play();
+        if (!store.ismuted) {Triumph();}
       } });
       tl.to('#win3', { delay: -0.2, duration: 0.2, scale: 1, ease: 'expo.out' });
       tl.to('#win1', { delay: -0.2, duration: 0.2, opacity: 1, y: 0, ease: 'expo.out' });

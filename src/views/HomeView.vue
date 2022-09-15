@@ -26,7 +26,7 @@ onMounted(() => {
 
 
 const onLeave = (path) => {
-  ClickSound()
+  if (!store.ismuted) {ClickSound()}
   setTimeout (() => {
   if(path == 'tutorial') {
       emit('music', '/audio/3FunkShortVersion.mp3')

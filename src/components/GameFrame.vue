@@ -29,7 +29,9 @@ const numberSelection = (num, slot) => {
 
 const quickPick = () => {
   // generate an array of 3 integers between 0 and 9 but they must be unique.
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   if (store.presentrules == 0) {
     store.randomNums()
   } else if (store.presentrules == 1) {
@@ -41,12 +43,16 @@ const quickPick = () => {
 }
 
 const queryFireball = () => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   store.showFireball()
 }
 
 const playFireball = () => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   store.hideFireball()
   store.useFireball()
   store.genFireball()
@@ -54,7 +60,9 @@ const playFireball = () => {
 }
 
 const optOut = () => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
   store.hideFireball()
   store.noFireball()
   store.genFireball()
@@ -67,7 +75,9 @@ const nextGame = () => {
 }
 
 const chooseRules = (num) => {
-  ClickSound()
+  if (!store.ismuted) {
+    ClickSound()
+  }
    store.setPresentRules(num)
 }
 </script>

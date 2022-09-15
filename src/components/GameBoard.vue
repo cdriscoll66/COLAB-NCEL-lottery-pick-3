@@ -9,7 +9,9 @@ const emit = defineEmits(['select-num']);
 
 
 const selectNum = (num, slot) => {
+  if (!store.ismuted) {
     ClickSound()
+  }
     emit('select-num', num, slot);
 };
 
