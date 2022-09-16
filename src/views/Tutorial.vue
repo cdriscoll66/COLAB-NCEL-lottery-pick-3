@@ -55,13 +55,6 @@ const state = reactive({
           length: 14.037,
           marker: 0,
         },
-        {
-          id: 5,
-          title: 'More Ways to Win',
-          video: '/video/01-05.mp4',
-          length: 11.029,
-          marker: 0,
-        },
       ],
     },
     {
