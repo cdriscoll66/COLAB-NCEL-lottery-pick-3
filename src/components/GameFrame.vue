@@ -113,7 +113,7 @@ const chooseRules = (num) => {
         Pick All the Same Number
       </a>
       <a v-else href @click.prevent="chooseRules(2)">
-        Pick 2 of the Same and 1 Different
+        Pick Two of the Same Numbers and One Different
       </a>
     </div>
   </div>

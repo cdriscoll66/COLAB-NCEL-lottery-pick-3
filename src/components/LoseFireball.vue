@@ -2,9 +2,9 @@
 import gsap from 'gsap';
 import { gamesStore } from '@/store/GamesStore';
 import { onMounted } from 'vue';
-import Logo from '../assets/pick3plusfireball-logo.png';
 import Fireball from '../assets/fireball.png'
 
+store = gamesStore();
 
 onMounted(() => {
     let tl = gsap.timeline({

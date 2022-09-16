@@ -138,7 +138,7 @@ const state = reactive({
       ],
     },
     {
-      subject: 'See if You\'ve Won',
+      subject: 'Check Results',
       videos: [
       {
           id: 15,
@@ -146,35 +146,7 @@ const state = reactive({
           video: '/video/04-01.mp4',
           length: 21.0347,
           marker: 0,
-        },
-        {
-          id: 16,
-          title: 'Fireball (Two Clips)',
-          video: '/video/04-02.mp4',
-          length: 13.03,
-          marker: 0,
-        },
-        {
-          id: 17,
-          title: 'Check you Ticket',
-          video: '/video/04-03.mp4',
-          length: 10.03,
-          marker: 0,
-        },
-        {
-          id: 18,
-          title: 'Find Past Results',
-          video: '/video/04-04.mp4',
-          length: 9.536,
-          marker: 0,
-        },
-        {
-          id: 19,
-          title: 'Final Vid',
-          video: '/video/04-05.mp4',
-          length: 10.03,
-          marker: 0,
-        },
+        }
       ],
     },
   ],
@@ -185,7 +157,7 @@ const nextVideo = () => {
     state.video + 1 >= state.tuts[state.subject].videos.length &&
     state.subject + 1 == state.tuts.length
   ) {
-    console.log('end of tutorial')
+    store.toggleTOC()
     return
   } else if (state.video + 1 >= state.tuts[state.subject].videos.length) {
     state.video = 0
