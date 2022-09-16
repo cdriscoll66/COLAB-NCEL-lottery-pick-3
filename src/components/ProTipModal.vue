@@ -22,15 +22,15 @@ const emit = defineEmits(['close']);
       </div>
       <div v-if="(store.showfireball)" class="modal__text">
           <img width="183" height="21" alt="Fireball" :src="Fireball" />
-          <h2 class="highlighted">Use <span>“Quick Pick”</span> to have your numbers randomly selected.
-</h2>
-<p>When you add Fireball to Pick 3, you get an extra drawn-number for more combinations to match and win. A Fireball number is drawn following each Carolina Pick 3 drawing. When you add Fireball to your ticket, the Fireball number can replace any other Pick 3 drawn-number for more chances to win.</p>
+          <h2 class="highlighted">What is <span>Fireball?</span>
+          </h2>
+          <p>When you add Fireball to Pick 3, you get an extra drawn-number for more combinations to match and win. A Fireball number is drawn following each Carolina Pick 3 drawing. When you add Fireball to your ticket, the Fireball number can replace any other Pick 3 drawn-number for more chances to win.</p>
       </div>
 
 
       <div v-else-if="(store.presentgame === null)" class="modal__text">
         <p>
-          Exact, Any, and 50/50 are the most popular ways to play pick 3, but they aren’t the only ways. Try Combo, Front pair, or Back Pair for more ways to play and win.
+          Exact, Any, and 50/50 are the most popular ways to play Pick 3, but they aren’t the only ways. Try Combo, Front Pair, or Back Pair for more ways to play and win.
         </p>
         <h2>Combo</h2>
         <p>
@@ -81,7 +81,7 @@ const emit = defineEmits(['close']);
 p {
   font-family: 'Avenir Next', sans-serif;
   color: var(--vt-c-white);
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 

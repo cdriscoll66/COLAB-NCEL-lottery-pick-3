@@ -203,17 +203,6 @@ nav a span.nav-icon {
   margin-top: 5px;
 }
 
-nav .nav-icon:after {
-  content: '';
-  display: block;
-  width: 70%;
-  height: 3px;
-  margin: 0 auto;
-  border-radius: 50%;
-  background-color: rgba(18, 18, 18, 0.3);
-  transition: transform 0.4s;
-  filter: blur(2.71828px);
-}
 
 nav a:first-of-type {
   border: 0;

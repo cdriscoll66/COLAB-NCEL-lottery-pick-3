@@ -89,8 +89,7 @@ onMounted(() => {
         </div>
         <div class="info-point">
           <p>
-            There are MANY way to play Pick 3. Try a popular option above,
-            then explore the rest at NCLottery.com.
+            There are MANY ways to play Pick 3. Try a popular option above or explore the Pro Tip for more ways to play
           </p>
         </div>
       </div>

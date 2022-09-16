@@ -102,7 +102,7 @@ const chooseRules = (num) => {
     <div class="rules-select__list">
       
       <div class="playtype-select__note">
-    <p>There are MANY ways to play pick 3. Choose one of these most popular ways to learn how the game is played.</p>
+    <p>There are MANY ways to play Pick 3. Try a popular option above or explore the Pro Tip for more ways to play.</p>
     </div>
       <a href @click.prevent="chooseRules(0)">Pick Different Numbers</a>
       <a
@@ -130,8 +130,7 @@ const chooseRules = (num) => {
       </div>
       <div class="play-note info-point">
         <p>
-          With the Fireball, you can replace any number drawn by the lottery.
-          This gives you more combinations and more chances to win!
+          Fireball is an extra lottery-drawn number for more combinations to match and win. Adding Fireball doubles the cost of your ticket.
         </p>
       </div>
 
@@ -161,7 +160,7 @@ const chooseRules = (num) => {
         class="accent-button one-line"
         @click.prevent="queryFireball()"
       >
-        <span class="button__title">Play!</span>
+        <span class="button__title">Next</span>
       </a>
     </div>
 
