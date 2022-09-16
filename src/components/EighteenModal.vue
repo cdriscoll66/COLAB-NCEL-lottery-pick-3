@@ -29,7 +29,7 @@ const confirmation = () => {
     </a>
     </div>
     </div>
-    <p class="notice">Game demos are for educational purposes only and do not represent actual odds of winning. Winning in this experience does not convey any prizes or cash value. There may be some variations between the demo game and the actual game. The North Carolina Education Lottery Pick 3 game play is subject to NCEL game rules</p>
+    <p class="notice">Game demos are for educational purposes only and do not represent actual odds of winning. Winning in this experience does not convey any prizes or cash value. There may be some variations between the demo game and the actual game. The North Carolina Education Lottery Pick 3 game play is subject to NCEL game rules.</p>
     <BgStars />
   </div>
 </template>

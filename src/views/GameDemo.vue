@@ -89,7 +89,7 @@ onMounted(() => {
         </div>
         <div class="info-point">
           <p>
-            There are MANY ways to play Pick 3. Try a popular option above or explore the Pro Tip for more ways to play
+            There are MANY ways to play Pick 3. Try a popular option above or explore the Pro Tip for more ways to play.
           </p>
         </div>
       </div>
