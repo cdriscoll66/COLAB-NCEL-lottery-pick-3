@@ -365,7 +365,7 @@ h3 span {
 
 .yours div {
   background: none;
-  border: 2px solid #ffd206;
+  border: 2px solid transparent;
   filter: drop-shadow(0px 0px 9px #cbac20);
   color: var(--vt-c-white);
 }

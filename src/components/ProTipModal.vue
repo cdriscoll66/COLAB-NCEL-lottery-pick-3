@@ -1,5 +1,4 @@
 <script setup>
-import BgStars from '../components/BgStars.vue'
 import { gamesStore } from '@/store/GamesStore'
 import Fireball from '../assets/fireball.png'
 import X from '../assets/x-protip.svg'
@@ -63,7 +62,8 @@ const emit = defineEmits(['close']);
   height: 100%;
   z-index: 1;
   overflow-y: scroll;
-  background-color: var(--color-green-darkest)
+  background-color: var(--color-green-darkest);
+  overflow: hidden;
 }
 
 .modal__content {

@@ -30,7 +30,7 @@ const resetGame = () => {
         <span class="button__title">Learn the Game</span>
       </div>
                 </RouterLink>
-        <a href="https://www.yahoo.com" target="_blank" class="accent-button one-line">
+        <a href="https://nclottery.com/" target="_blank" class="accent-button one-line">
       <div>
         <span class="button__title">Buy Online</span>
       </div>

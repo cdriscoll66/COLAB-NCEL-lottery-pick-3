@@ -52,6 +52,7 @@ export const gamesStore = defineStore("games", {
       this.iseighteen = true;
     },
     setPresentGame(game) {
+      this.resetPicksAndFireball();
       this.presentgame = game;
     },
     showFireball() {
@@ -83,7 +84,8 @@ export const gamesStore = defineStore("games", {
       this.presentrules = null;
       this.presentgame = null;
       this.showfireball = false;
-      this.prizemoney = 0;
+      this.prizemoney = 0;      
+      this.fireprizemoney = 0;
       this.winpercentage = null;
       this.finalwinners = [null, null, null];
       this.finalfireball = null;

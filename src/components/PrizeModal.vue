@@ -37,7 +37,8 @@
       height: 100%;
       z-index: 1;
       overflow-y: scroll;
-      background-color: var(--color-green-darkest)
+      background-color: var(--color-green-darkest);
+      overflow: hidden;
     }
     
     .modal__content {
