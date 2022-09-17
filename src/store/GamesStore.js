@@ -3,6 +3,7 @@ import { defineStore } from "pinia";
 export const gamesStore = defineStore("games", {
   state: () => ({
     showtoc: false,
+    isquickpick: false,
     ismuted: false,
     iseighteen: false,
     showfireball: false,
@@ -89,7 +90,7 @@ export const gamesStore = defineStore("games", {
       this.winpercentage = null;
       this.finalwinners = [null, null, null];
       this.finalfireball = null;
-
+      this.isquickpick = false; 
     },
     selectNum(num, slot) {
       this.picks[slot] = num;
@@ -191,6 +192,12 @@ export const gamesStore = defineStore("games", {
     },
     toggleMute() {
       this.ismuted = !this.ismuted;
+    },
+    isQuickPick() {
+      this.isquickpick = true;
+    },
+    isNotQuickPick() {
+      this.isquickpick = false;
     }
   },
 });

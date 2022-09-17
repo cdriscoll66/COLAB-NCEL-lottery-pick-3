@@ -32,8 +32,14 @@ onMounted(() => {
   // fade in system
   tl.to('#picks', {duration: .0, opacity: 0, y: 50});
   tl.to('#winning', {duration: .0, opacity: 0, y: 50});
+  tl.to('#number-0', {duration: .0, opacity: 0, y: 50});
+  tl.to('#number-1', {duration: .0, opacity: 0, y: 50});
+  tl.to('#number-2', {duration: .0, opacity: 0, y: 50});
   tl.to ('#picks', {duration: .5, opacity: 1, y: 0, ease: 'power1.inOut'});
   tl.to ('#winning', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
+  tl.to ('#number-0', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
+  tl.to ('#number-1', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
+  tl.to ('#number-2', {duration: .5, opacity: 1, y: 0, delay: 1, ease: 'power1.inOut'});
 
       // circle numbers Bloops
       if (store.fireballselected == false) {
@@ -265,7 +271,10 @@ const nextScreen = (num) => {
 #winning,
 #fireball__row,
 #fireball span,
-#picks {
+#picks,
+#number-0,
+#number-1, 
+#number-2 {
   opacity: 0;
 }
 .wrapper {

@@ -64,11 +64,13 @@ h2.game-type {
 
 h2.game-type::before, .fireball-mark::before {
   content: '';
+  display: block;
   width: 30px;
-  height: 40px;
-  background-color: #CF271C;
-  border-radius: 3.94px;
-  margin-right: 10px;
+  height: 30px;
+  background-image: url(../assets/square-check.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 4px;
 }
 
 .picks {

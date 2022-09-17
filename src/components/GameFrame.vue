@@ -13,6 +13,7 @@ const store = gamesStore()
 
 
 const numberSelection = (num, slot) => {
+  store.isNotQuickPick();
   if (store.presentrules == 1) {
     store.setSame(num)
   } else if (store.presentrules == 2) {
@@ -28,6 +29,7 @@ const numberSelection = (num, slot) => {
 }
 
 const quickPick = () => {
+  store.isQuickPick();
   // generate an array of 3 integers between 0 and 9 but they must be unique.
   if (!store.ismuted) {
     ClickSound()
@@ -150,7 +152,8 @@ const chooseRules = (num) => {
     <GameBoard @select-num="numberSelection"></GameBoard>
 
     <div class="quick-pick">
-      <a href @click.prevent="quickPick">Quick Pick</a>
+      <a v-if="store.isquickpick" href class="isquickpick" @click.prevent="quickPick">Quick Pick</a>
+      <a v-else class="isnotquickpick" href @click.prevent="quickPick">Quick Pick</a>
     </div>
 
     <div class="bottom play">
@@ -194,7 +197,6 @@ const chooseRules = (num) => {
   align-items: center;
 }
 
-.quick-pick a::before,
 .fireball__select a::before {
   content: '';
   display: block;
@@ -204,6 +206,22 @@ const chooseRules = (num) => {
   border-radius: 3.94px;
   border: 1px solid var(--color-fireball-red);
   margin-right: 12px;
+}
+  
+.quick-pick a::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/square-check.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 4px;
+}
+
+.quick-pick a.isnotquickpick::before {
+  background-image: url(../assets/blank-square.svg);
+
 }
 
 h2 {

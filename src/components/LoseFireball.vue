@@ -4,7 +4,7 @@ import { gamesStore } from '@/store/GamesStore';
 import { onMounted } from 'vue';
 import Fireball from '../assets/fireball.png'
 
-store = gamesStore();
+const store = gamesStore();
 
 onMounted(() => {
     let tl = gsap.timeline({

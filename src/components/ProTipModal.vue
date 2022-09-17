@@ -31,6 +31,9 @@ const emit = defineEmits(['close']);
         <p>
           Exact, Any, and 50/50 are the most popular ways to play Pick 3, but they aren’t the only ways. Try Combo, Front Pair, or Back Pair for more ways to play and win.
         </p>
+
+        <h2>50/50 (Exact + Any)</h2>
+        <p>Combines Exact and Any Order plays so that you win either way the numbers are drawn. If numbers match exactly, you win both prizes.</p>
         <h2>Combo</h2>
         <p>
           Provides an Exact play for all possible combinations of the numbers you selected on a single ticket.        </p>
@@ -63,7 +66,12 @@ const emit = defineEmits(['close']);
   z-index: 1;
   overflow-y: scroll;
   background-color: var(--color-green-darkest);
-  overflow: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal::-webkit-scrollbar {
+  display: none;
 }
 
 .modal__content {
