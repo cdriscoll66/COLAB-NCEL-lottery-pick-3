@@ -158,13 +158,12 @@ onMounted(() => {
 .rules-select__list a::before {
   content: '';
   display: block;
-  min-width: 39px;
-  width: 39px;
-  height: 39px;
-  background-color: var(--vt-c-white);
-  border-radius: 3.94px;
-  border: 1px solid var(--color-fireball-red);
-  margin-right: 12px;
+  width: 30px;
+  height: 30px;
+  background-image: url(../assets/square-check.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 4px;
 }
 
 h2 {

@@ -201,11 +201,11 @@ const chooseRules = (num) => {
   content: '';
   display: block;
   width: 30px;
-  height: 40px;
-  background-color: var(--vt-c-white);
-  border-radius: 3.94px;
-  border: 1px solid var(--color-fireball-red);
-  margin-right: 12px;
+  height: 30px;
+  background-image: url(../assets/square-check.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 4px;
 }
   
 .quick-pick a::before {
