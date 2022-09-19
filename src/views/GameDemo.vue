@@ -158,7 +158,7 @@ onMounted(() => {
 .rules-select__list a::before {
   content: '';
   display: block;
-  width: 30px;
+  min-width: 30px;
   height: 30px;
   background-image: url(../assets/square-check.svg);
   background-repeat: no-repeat;
