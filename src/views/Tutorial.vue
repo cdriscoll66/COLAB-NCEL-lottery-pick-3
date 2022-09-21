@@ -231,7 +231,7 @@ const handleRestart = () => {
         <span class="button__title">Play the Demo</span>
       </div>
                 </RouterLink>
-        <a href="https://nclottery.com/playsmart" target="_blank" class="accent-button one-line">
+        <a href="https://nclottery.com/wheretoplay" target="_blank" class="accent-button one-line">
       <div>
         <span class="button__title">Locate a Retailer</span>
       </div>
