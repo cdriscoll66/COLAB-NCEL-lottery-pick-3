@@ -24,7 +24,7 @@ const confirmation = () => {
       <a href @click.prevent="confirmation" class="accent-button">
         <span class="button__title">Yes</span>
     </a>
-      <a href="https://nclottery.com/" target="_blank" class="accent-button btn-gray">
+      <a href="https://nclottery.com/playsmart" target="_blank" class="accent-button btn-gray">
         <span class="button__title">No</span>
     </a>
     </div>

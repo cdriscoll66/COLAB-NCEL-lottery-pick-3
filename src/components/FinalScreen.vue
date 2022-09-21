@@ -30,15 +30,13 @@ const resetGame = () => {
         <span class="button__title">Learn the Game</span>
       </div>
                 </RouterLink>
-        <a href="https://nclottery.com/" target="_blank" class="accent-button one-line">
+        <a href="https://nclottery.com/playsmart" target="_blank" class="accent-button one-line">
       <div>
-        <span class="button__title">Buy Online</span>
+        <span class="button__title">Locate a Retailer</span>
       </div>
     </a>
     </div>
 <p>Game Demos are for educational purposes only and do not represent actual odds of winning. Winning in this experience does not convey any prizes or cash value. There may be some variations between the demo game and the actual game. The North Carolina Lottery Pick 3 game play is subject to NCEL game rules.</p>
-
-
 </div>
 </template>
 

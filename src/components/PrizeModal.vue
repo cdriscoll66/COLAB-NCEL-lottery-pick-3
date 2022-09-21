@@ -20,58 +20,60 @@ import BgStars from './BgStars.vue';
     
     
           <div class="modal__text">
-          <h2 class="highlighted">Prizes & Odds</h2>      
+          <h2 class="highlighted">Prizes & Odds</h2>
+          <h3 >Prizes</h3>      
+      
               <table>
                 <tr>
-                  <th>Play Type: <br /> Exact Order</th>
-                  <th>Odds</th>
-                  <th>Prize Amounts<br /><span>$1 play</span></th>
+                  <th>Play Type<br /><span>$1 play</span></th>
+                  <th>Prize</th>
+                  <th>Fireball Prize</th>
                 </tr>
                 <tr>
-                  <td>3 Different Numbers</td>
-                  <td>1:1,000</td>
+                  <td>Exact</td>
                   <td>$500</td>
+                  <td>$180</td>
                 </tr>
                 <tr>
-                  <td>2 like Numbers <br />& 1 Different</td>
-                  <td>1:1,000</td>
-                  <td>$500</td>
-                </tr>
-                <tr>
-                  <td>3 like numbers</td>
-                  <td>1:1,000</td>
-                  <td>$500</td>
-                </tr>
-              </table>
-
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
-
-              <ul>
-                <li>Odds of winning are approximately 1,000: 1</li>
-                <li>Odds of winning are approximately 1,000: 1</li>
-                <li>Odds of winning are approximately 1,000: 1</li>
-              </ul>
-
-              <h2 class="highlighted">Any Order Play</h2>
-
-              <table>
-                <tr>
-                  <th>Play Type: <br /> Any Order</th>
-                  <th>Odds</th>
-                  <th>Prize Amounts<br /><span>$1 play</span></th>
-                </tr>
-                <tr>
-                  <td>3 Way (2 like 1 different)</td>
-                  <td>1:333</td>
+                  <td>Any (3-way)</td>
                   <td>$160</td>
+                  <td>$60</td>
                 </tr>
                 <tr>
-                  <td>6 Way (3 different)</td>
-                  <td>1:167</td>
+                  <td>Any (6-way)</td>
                   <td>$80</td>
+                  <td>$30</td>
                 </tr>
               </table>
-              <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+
+              <p> Fireball wins are separate and in addition to any Pick 3 base game wins. All prizes shown based on $1 Play. Visit <a href="https://nclottery.com/Pick3-How-to-Play" target="_blank">nclottery.com/Pick3-How-to-Play</a> a for a list of prizes for additional Pick 3 play types as well as $0.50 Play prizes across all play types. </p>
+
+              <h3>Odds</h3>
+
+              <table>
+                <tr>
+                  <th>Play Types</th>
+                  <th>Odds</th>
+                  <th>Fireball Odds</th>
+                </tr>
+                <tr>
+                  <td>Exact</td>
+                  <td>1:1,000</td>
+                  <td>1:333</td>
+                </tr>
+                <tr>
+                  <td>Any (3-way)</td>
+                  <td>1:1,333</td>
+                  <td>1:111</td>
+                </tr>
+                <tr>
+                  <td>Any (6-way)</td>
+                  <td>1:167</td>
+                  <td>1:56</td>
+                </tr>
+              </table>
+              <p> The odds of winning Fireball vary by the unique numbers played. Visit Visit <a href="https://nclottery.com/Pick3-How-to-Play" target="_blank">nclottery.com/Pick3-How-to-Play</a> to see odds for additional Pick 3 play types.</p>
+
 
           </div>
     
@@ -172,6 +174,10 @@ import BgStars from './BgStars.vue';
       list-style: none;
     }
     
+    a {
+      color: var(--vt-c-black);
+      text-decoration: underline;
+    }
    
     </style>
     
