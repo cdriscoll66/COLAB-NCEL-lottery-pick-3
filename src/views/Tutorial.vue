@@ -202,6 +202,7 @@ const handleToc = (i) => {
   state.video = 0
   state.playing = true
   store.showtoc = false
+  state.showEnding = false
   emit('music', '/audio/3FunkShortVersion.mp3')
 }
 
@@ -210,6 +211,7 @@ const handleRestart = () => {
   state.subject = 0
   state.video = 0
   state.playing = true
+  store.showtoc = false
   state.showEnding = false
   emit('music', '/audio/3FunkShortVersion.mp3')
 }
