@@ -10,7 +10,8 @@ export const gamesStore = defineStore("games", {
     showresults: false,
     fireballselected: false, // true if fireball is selected
     picks: [null, null, null],
-    fireball: null, 
+    fireball: null,
+    fbchecked: false, 
     loser: null,
     presentgame: null, // exact or any
     presentrules: null, // diff, same, 2 or 1
@@ -91,6 +92,7 @@ export const gamesStore = defineStore("games", {
       this.finalwinners = [null, null, null];
       this.finalfireball = null;
       this.isquickpick = false; 
+      this.fbchecked = false;
     },
     selectNum(num, slot) {
       this.picks[slot] = num;
@@ -198,6 +200,9 @@ export const gamesStore = defineStore("games", {
     },
     isNotQuickPick() {
       this.isquickpick = false;
+    },
+    fbCheckedToggle() {
+      this.fbchecked = !this.fbchecked;
     }
   },
 });

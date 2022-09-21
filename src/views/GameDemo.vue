@@ -152,18 +152,20 @@ onMounted(() => {
   line-height: 1.2;
   color: var(--vt-c-white);
   margin-bottom: 30px;
+  align-items: center;
 }
 
 .game-select__list a::before,
 .rules-select__list a::before {
   content: '';
   display: block;
-  min-width: 30px;
-  height: 30px;
-  background-image: url(../assets/square-check.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 4px;
+  min-width: 39px;
+  width: 39px;
+  height: 39px;
+  background-color: var(--vt-c-white);
+  border-radius: 3.94px;
+  border: 1px solid var(--color-fireball-red);
+  margin-right: 12px;
 }
 
 h2 {

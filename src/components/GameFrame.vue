@@ -88,7 +88,7 @@ const chooseRules = (num) => {
   <div class="btn-row" v-if="(store.presentrules === null && store.gamerules)"></div>
   <div class="btn-row" v-else>
     <a class="small-btn" href @click.prevent="emit('protip')">Pro Tip</a>
-    <a class="small-btn" href @click.prevent="emit('prize')">
+    <a v-if="(store.presentgame === null)" class="small-btn" href @click.prevent="emit('prize')">
       Prizes & Odds
     </a>
   </div>
@@ -104,7 +104,7 @@ const chooseRules = (num) => {
     <div class="rules-select__list">
       
       <div class="playtype-select__note">
-    <p>There are MANY ways to play Pick 3. Try a popular option above or explore the Pro Tip for more ways to play.</p>
+    <p>There are MANY ways to play Pick 3. Choose one of these most popular ways to learn how the game is played.</p>
     </div>
       <a href @click.prevent="chooseRules(0)">Pick Different Numbers</a>
       <a
@@ -126,7 +126,7 @@ const chooseRules = (num) => {
         <span>Fireball?</span>
       </h2>
       <div class="fireball__select">
-        <a href @click.prevent="playFireball()">
+        <a href :class="{ checked: store.fbchecked }" @click.prevent="store.fbCheckedToggle()">
           <img width="183" height="21" alt="Fireball" :src="Fireball" />
         </a>
       </div>
@@ -136,7 +136,13 @@ const chooseRules = (num) => {
         </p>
       </div>
 
-      <div class="fireball-pick__optout">
+      <div v-if="(store.fbchecked)" class="fireball-pick__button fireball-pick__optout">
+        <a class="accent-button" href @click.prevent="playFireball">
+          <div><span class="button-title">Next</span></div>
+        </a>
+      </div>
+
+      <div v-else class="fireball-pick__button fireball-pick__optout">
         <a class="accent-button btn-gray" href @click.prevent="optOut">
           <div><span class="button-title">Not This Time</span></div>
         </a>
@@ -152,8 +158,7 @@ const chooseRules = (num) => {
     <GameBoard @select-num="numberSelection"></GameBoard>
 
     <div class="quick-pick">
-      <a v-if="store.isquickpick" href class="isquickpick" @click.prevent="quickPick">Quick Pick</a>
-      <a v-else class="isnotquickpick" href @click.prevent="quickPick">Quick Pick</a>
+      <a href :class="{ checked: store.isquickpick }" @click.prevent="quickPick">Quick Pick</a>
     </div>
 
     <div class="bottom play">
@@ -197,31 +202,20 @@ const chooseRules = (num) => {
   align-items: center;
 }
 
-.fireball__select a::before {
+.fireball__select a::before, .quick-pick a::before {
   content: '';
   display: block;
   width: 30px;
   height: 30px;
   background-image: url(../assets/square-check.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 4px;
-}
-  
-.quick-pick a::before {
-  content: '';
-  display: block;
-  width: 30px;
-  height: 30px;
-  background-image: url(../assets/square-check.svg);
-  background-repeat: no-repeat;
-  background-size: contain;
-  margin-right: 4px;
-}
-
-.quick-pick a.isnotquickpick::before {
   background-image: url(../assets/blank-square.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 4px;
+}
 
+.quick-pick a.checked::before, .fireball__select a.checked::before {
+  background-image: url(../assets/square-check.svg);
 }
 
 h2 {
@@ -290,7 +284,7 @@ h2 {
 .fireball-pick__container h2{
   margin-bottom: 30px;
 }
-.fireball-pick__optout .btn-gray {
+.fireball-pick__button a {
   font-size: 18px;
   line-height: 22px;
   letter-spacing: -0.35px;
@@ -299,4 +293,5 @@ h2 {
   min-width: unset;
   padding: 12px 32px;
 }
+
 </style>
