@@ -47,9 +47,9 @@ import BgStars from './BgStars.vue';
               <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
 
               <ul>
-                <li>Odds of winning are aproximately 1,000: 1</li>
-                <li>Odds of winning are aproximately 1,000: 1</li>
-                <li>Odds of winning are aproximately 1,000: 1</li>
+                <li>Odds of winning are approximately 1,000: 1</li>
+                <li>Odds of winning are approximately 1,000: 1</li>
+                <li>Odds of winning are approximately 1,000: 1</li>
               </ul>
 
               <h2 class="highlighted">Any Order Play</h2>
