@@ -174,7 +174,7 @@ import BgStars from './BgStars.vue';
       list-style: none;
     }
     
-    a {
+   .modal__text a  {
       color: var(--vt-c-black);
       text-decoration: underline;
     }
