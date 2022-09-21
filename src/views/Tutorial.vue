@@ -9,6 +9,7 @@ import BackBtn from '../assets/arrow-square-left.svg'
 import VideoPlayer from '../components/VideoPlayer.vue'
 import ProgressBar from '../components/ProgressBar.vue'
 import { ClickSound } from '../composables/sfx'
+import BgStars from '../components/BgStars.vue'
 
 const emit = defineEmits(['music', 'musicplaypause'])
 
@@ -23,6 +24,7 @@ const state = reactive({
   subject: 0,
   video: 0,
   playing: true,
+  showEnding: false,
   tuts: [
     {
       subject: 'Ways to Win',
@@ -150,7 +152,7 @@ const nextVideo = () => {
     state.video + 1 >= state.tuts[state.subject].videos.length &&
     state.subject + 1 == state.tuts.length
   ) {
-    store.toggleTOC()
+    state.showEnding = true
     return
   } else if (state.video + 1 >= state.tuts[state.subject].videos.length) {
     state.video = 0
@@ -202,10 +204,41 @@ const handleToc = (i) => {
   store.showtoc = false
   emit('music', '/audio/3FunkShortVersion.mp3')
 }
+
+const handleRestart = () => {
+  if (!store.ismuted) {ClickSound()}
+  state.subject = 0
+  state.video = 0
+  state.playing = true
+  state.showEnding = false
+  emit('music', '/audio/3FunkShortVersion.mp3')
+}
 </script>
 
 <template>
-  <main>
+  <div class="ending__container" v-if="state.showEnding">
+      <div class="ending__content">
+        <div class="btns">
+    <a href @click.prevent="handleRestart" class="accent-button one-line">
+      <div>
+        <span class="button__title">Watch Again</span>
+      </div>
+    </a>
+                <RouterLink to="/game"  class="accent-button one-line">
+      <div>
+        <span class="button__title">Play the Game</span>
+      </div>
+                </RouterLink>
+        <a href="https://nclottery.com/" target="_blank" class="accent-button one-line">
+      <div>
+        <span class="button__title">Buy Online</span>
+      </div>
+    </a>
+    </div>
+      </div>
+  <BgStars />
+  </div>
+  <main v-else>
     <div v-show="(store.showtoc)" class="table-of-contents">
       <ul>
         <li v-for="(tut, index) in state.tuts">
@@ -332,5 +365,17 @@ h1 {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
+}
+
+.ending__container {
+  height: 100%; 
+}
+
+.ending__content {
+  height: 100%;
+  padding-top: 60px;
+  display: flex; 
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 </style>
