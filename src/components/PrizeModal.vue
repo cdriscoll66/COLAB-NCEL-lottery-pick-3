@@ -63,7 +63,7 @@ import BgStars from './BgStars.vue';
                 </tr>
                 <tr>
                   <td>Any (3-way)</td>
-                  <td>1:1,333</td>
+                  <td>1:333</td>
                   <td>1:111</td>
                 </tr>
                 <tr>
