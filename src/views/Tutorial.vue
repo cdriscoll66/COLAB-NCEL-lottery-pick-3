@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, onMounted } from 'vue'
+import { reactive, ref, onMounted, computed } from 'vue'
 import { gamesStore } from '@/store/GamesStore'
 
 import PlayBtn from '../assets/play.svg'
@@ -16,8 +16,10 @@ const emit = defineEmits(['music', 'musicplaypause'])
 const store = gamesStore()
 
 onMounted(() => {
-  emit('music', '/audio/3FunkShortVersion.mp3')
+  emit('music', '/audio/3FunkShortVersion.mp3')  
 });
+
+
 
 
 const state = reactive({
@@ -47,7 +49,7 @@ const state = reactive({
           id: 3,
           title: 'Any Order',
           video: '/video/01-03.mp4',
-          length: 11.54,
+          length: 11.03,
           marker: 0,
         },
         {
@@ -73,7 +75,7 @@ const state = reactive({
           id: 7,
           title: 'Play Type',
           video: '/video/02-02.mp4',
-          length: 7.04,
+          length: 7.1467,
           marker: 0,
         },
         {
@@ -94,7 +96,7 @@ const state = reactive({
           id: 10,
           title: 'Selecting Drawings',
           video: '/video/02-05.mp4',
-          length: 7.04,
+          length: 7.14667,
           marker: 0,
         },
         {
@@ -147,8 +149,23 @@ const state = reactive({
   ],
 })
 
+const plvid = ref(null);
+let preloadVid = computed(() => {
+  if (    
+    state.video + 1 >= state.tuts[state.subject].videos.length &&
+    state.subject + 1 == state.tuts.length
+  ) {
+    return
+  } else if (state.video + 1 >= state.tuts[state.subject].videos.length) {
+    return state.tuts[state.subject + 1].videos[0].video
+  } else {
+    return state.tuts[state.subject].videos[state.video + 1].video
+  }
+})
+
 const nextVideo = () => {
-  if (
+  plvid.value.load();
+  if (    
     state.video + 1 >= state.tuts[state.subject].videos.length &&
     state.subject + 1 == state.tuts.length
   ) {
@@ -167,6 +184,7 @@ const nextVideo = () => {
 
 const handleEnd = () => {
   nextVideo()
+  
 }
 
 const UpdateTime = (timer) => {
@@ -283,6 +301,9 @@ const handleRestart = () => {
         <span>Next</span>
       </a>
     </div>
+    <video :id="state.tuts[state.subject].videos[state.video].id" width=0 height=0 ref="plvid" muted preload>
+      <source :src='preloadVid' type="video/mp4">
+    </video>
   </main>
 </template>
 
