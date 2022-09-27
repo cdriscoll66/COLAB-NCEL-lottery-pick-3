@@ -99,9 +99,14 @@ const onLeave = (path) => {
 
 <style scoped>
 
+.sphere {
+  z-index: 1;
+}
+
 .home-warnings {
   margin: 20px 30px 0;
   text-align: center;
+  z-index: 0;
 }
 
 #sound-warning {
