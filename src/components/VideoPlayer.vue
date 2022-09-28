@@ -42,4 +42,14 @@ left: 0;
 width: 100%;
 background-color: var(--color-green-darkest);
 }
+
+video::-webkit-media-controls {
+        display:none !important;
+    }
+video::-webkit-media-controls-start-playback-button {
+        display: none!important;
+        -webkit-appearance: none;
+    }
+
+
 </style>
