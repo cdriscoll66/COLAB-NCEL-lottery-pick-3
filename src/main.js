@@ -11,7 +11,7 @@ import { createPinia } from 'pinia'
 const app = createApp(App).use(createPinia()).use(Particles)
 
 use(VueGtm, {
-    id: process.env.GTM-5QNGL5T,
+    id: 'GTM-5QNGL5T',
     defer: false,
     enabled: true,
     debug: false,
