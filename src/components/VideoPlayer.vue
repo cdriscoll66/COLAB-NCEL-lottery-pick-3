@@ -49,6 +49,7 @@ video::-webkit-media-controls {
 video::-webkit-media-controls-start-playback-button {
         display: none!important;
         -webkit-appearance: none;
+        appearance: none;
     }
 
 
