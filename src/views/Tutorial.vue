@@ -259,6 +259,7 @@ const handleRestart = () => {
   <BgStars />
   </div>
   <main v-else>
+    <BgStars green="true" />
     <div v-show="(store.showtoc)" class="table-of-contents">
       <ul>
         <li v-for="(tut, index) in state.tuts">

@@ -36,11 +36,11 @@ const spitOut = () => {
 
 <style scoped>
 #vid {position: absolute;
-z-index: -1;
+z-index: 0;
 bottom: 0;
 left: 0;
 width: 100%;
-background-color: var(--color-green-darkest);
+background-color: transparent;
 }
 
 video::-webkit-media-controls {
