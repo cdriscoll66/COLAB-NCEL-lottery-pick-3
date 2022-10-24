@@ -75,6 +75,12 @@ const props = defineProps(['green', 'gray'], {
     }
 }
 
+@supports  (selector(:nth-child(1 of x))) or (-webkit-touch-callout: none) {
+  .green > .bg-stars__inner::after  {	
+  background: none;	
+    }	
+}
+
 .gray > .bg-stars__inner::after {
   position: absolute;
   top: 0;
