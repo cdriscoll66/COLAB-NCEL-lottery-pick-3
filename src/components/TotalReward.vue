@@ -19,7 +19,7 @@
 
     const prizeamount = computed(() => {
         let val = null;
-        if (store.winpercentage > 75 || (store.winpercentage < 50 && store.winpercentage > 25)) {
+        if (store.winpercentage >= 75 || (store.winpercentage < 50 && store.winpercentage >= 25)) {
             val = 0
         } else {
             val = store.prizemoney 

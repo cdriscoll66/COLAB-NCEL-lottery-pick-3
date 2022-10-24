@@ -53,11 +53,11 @@ onMounted(() => {
           tl.call(bloopFirstTwoAny);
         }
       } else {
-        if (store.presentgame === 'exact' && (store.winpercentage < 25 || (store.winpercentage > 50 && store.winpercentage <= 75))) {
+        if (store.presentgame === 'exact' && (store.winpercentage < 25 || (store.winpercentage >= 50 && store.winpercentage < 75))) {
           tl.call(bloopThreeExact);
         } else if (store.presentgame === 'exact' ){
           tl.call(bloopFirstTwoExact);
-        } else if (store.presentgame === 'any' && (store.winpercentage < 25 || (store.winpercentage > 50 && store.winpercentage <= 75))) {
+        } else if (store.presentgame === 'any' && (store.winpercentage < 25 || (store.winpercentage >= 50 && store.winpercentage < 75))) {
           tl.call(bloopThreeAny);
         } else if (store.presentgame === 'any') {
           tl.call(bloopFirstTwoAny);
@@ -65,7 +65,7 @@ onMounted(() => {
       }
       
       // first Winner/Loser Flourish
-      if ( (store.fireballselected === false && store.winpercentage > 75) || (store.fireballselected === true && (store.winpercentage > 75 || store.winpercentage > 25 && store.winpercentage <= 50)) ) {
+      if ( (store.fireballselected === false && store.winpercentage >= 75) || (store.fireballselected === true && (store.winpercentage >= 75 || store.winpercentage >= 25 && store.winpercentage < 50)) ) {
         tl.to('#winning', {duration: 3, onComplete: () => {  if (!store.ismuted) {FailSound();} state.finalScreens = -1}});
         tl.to('#winning',{ duration: 3, onComplete: () => { continueAnimation1() }});
       } else {
@@ -86,10 +86,10 @@ const continueAnimation1 = () => {
       })
       fireballAnimation();
 
-     if (store.winpercentage > 75) {
+     if (store.winpercentage >= 75) {
       tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = -2}});
       tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 5}});
-     } else if (store.winpercentage > 50) {
+     } else if (store.winpercentage >= 50) {
       tlcontinue.to("#winning", {duration: 6, onComplete: () => {state.finalScreens = -2}});
       tlcontinue.to("#winning", {duration: 5, onComplete: () => {state.finalScreens = 4}});
       tlcontinue.to("#winning", {duration: 9, onComplete: () => {state.finalScreens = 5}});
@@ -170,7 +170,7 @@ const fireballAnimation = () => {
       tlfire.to('#fireball__row', {duration: 1.5, x: 0, delay: 1, ease: 'elastic.out'});
       tlfire.to('#fireball div span', {duration: .3, opacity: 1, ease: 'power1.out'});
     
-      if (store.winpercentage > 50) {
+      if (store.winpercentage >= 50) {
         tlfire.to('#winning', {duration: .1, onComplete: () => { if (!store.ismuted) {FailSound();} }});
       } else if (store.presentgame === "exact") {
         tlfire.to('#fireball div span', {duration: .2, x: 117, y: 125, rotate: 450, ease: 'linear.out'});

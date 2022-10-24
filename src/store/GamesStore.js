@@ -180,6 +180,7 @@ export const gamesStore = defineStore("games", {
       } else {
         this.winpercentage = Math.floor(Math.random() * 100)
       }
+      // this.winpercentage = 24
     },
     genLoser() {
       let num = Math.floor(Math.random() * 10) + 1;
