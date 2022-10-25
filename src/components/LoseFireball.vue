@@ -13,13 +13,13 @@ onMounted(() => {
     });
 
     // fade in system
-    tl.to('#hl1', {duration: .0, opacity: 0, y: 50});
+    tl.to('#headline1', {duration: .0, opacity: 0, y: 50});
     tl.to('#logo', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl2', {duration: .0, opacity: 0, y: 50});
+    tl.to('#headline2', {duration: .0, opacity: 0, y: 50});
 
-    tl.to ('#hl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#headline1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#logo', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#hl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#headline2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
  });
 
  const nextScreen = (num) => {
@@ -30,10 +30,10 @@ onMounted(() => {
 
 <template>
 <div class="reward-wrapper">
-<div><h2 id="hl1">You didn't win</h2></div>
+<div><h2 id="headline1">You didn't win</h2></div>
 <div><img id="logo" width="183" height="21" alt="Fireball" :src="Fireball" /></div>
 <div>
-    <h2 class="betterluck" id="hl2">Better Luck Next Time!</h2></div>
+    <h2 class="betterluck" id="headline2">Better Luck Next Time!</h2></div>
 
 
 </div>
@@ -41,7 +41,7 @@ onMounted(() => {
 
 <style scoped>
 
-#hl1, #hl2, #logo {
+#headline1, #headline2, #logo {
     opacity: 0;
     /* transform: translateY(50px); */
 }

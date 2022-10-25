@@ -18,17 +18,17 @@ onMounted(() => {
     });
 
     // fade in system
-    tl.to('#hl1', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl2', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl3', {duration: .0, opacity: 0, y: 50});
+    tl.to('#fhl1', {duration: .0, opacity: 0, y: 50});
+    tl.to('#fhl2', {duration: .0, opacity: 0, y: 50});
+    tl.to('#fhl3', {duration: .0, opacity: 0, y: 50});
     tl.to('#logo', {duration: .0, opacity: 0, y: 50});
     // tl.to('#next-btn', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
+    tl.to('#fhl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
         if (!store.ismuted) { Jackpot();}
     }});
-    tl.to ('#hl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#hl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#hl3', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#fhl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#fhl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#fhl3', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#logo', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     // tl.to ('#next-btn', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
 
@@ -42,9 +42,9 @@ onMounted(() => {
 
 <template>
 <div class="reward-wrapper">
-<div><h2 id="hl1">You won</h2></div>
-<div class="reward__amt"><h2 id="hl2">${{ store.fireprizemoney }}</h2></div>
-<div><h2 id="hl3">playing</h2></div>
+<div><h2 id="fhl1">You won</h2></div>
+<div class="reward__amt"><h2 id="fhl2">${{ store.fireprizemoney }}</h2></div>
+<div><h2 id="fhl3">playing</h2></div>
 <div><img id="logo" width="183" height="21" alt="Fireball" :src="Fireball" />
 </div>
 
@@ -53,7 +53,7 @@ onMounted(() => {
 
 <style scoped>
 
-#hl1, #hl2, #hl3, #logo {
+#fhl1, #fhl2, #fhl3, #logo {
     opacity: 0;
     /* transform: translateY(50px); */
 }

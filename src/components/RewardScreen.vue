@@ -19,17 +19,17 @@ onMounted(() => {
     });
 
     // fade in system
-    tl.to('#hl1', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl2', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl3', {duration: .0, opacity: 0, y: 50});
+    tl.to('#hfl1', {duration: .0, opacity: 0, y: 50});
+    tl.to('#hfl2', {duration: .0, opacity: 0, y: 50});
+    tl.to('#hfl3', {duration: .0, opacity: 0, y: 50});
     tl.to('#logo', {duration: .0, opacity: 0, y: 50});
     tl.to('#next-btn', {duration: .0, opacity: 0, y: 50});
-    tl.to('#hl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
+    tl.to('#hfl2', {duration: .3, scale: 1.1, yoyo: true, repeat: -1, ease: 'power1.inOut', onComplete: () => {
         if (!store.ismuted) { Jackpot();}
     }});
-    tl.to ('#hl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#hl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
-    tl.to ('#hl3', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#hfl1', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#hfl2', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
+    tl.to ('#hfl3', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#logo', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
     tl.to ('#next-btn', {duration: .3, opacity: 1, y: 0, ease: 'power1.inOut'});
 
@@ -43,9 +43,9 @@ onMounted(() => {
 
 <template>
 <div class="reward-wrapper">
-<div><h2 id="hl1">You won</h2></div>
-<div class="reward__amt"><h2 id="hl2">${{ store.prizemoney }}</h2></div>
-<div><h2 id="hl3">playing</h2></div>
+<div><h2 id="hfl1">You won</h2></div>
+<div class="reward__amt"><h2 id="hfl2">${{ store.prizemoney }}</h2></div>
+<div><h2 id="hfl3">playing</h2></div>
 <div><img
           width="256"
           height="102"
@@ -64,7 +64,7 @@ onMounted(() => {
 
 <style scoped>
 
-#hl1, #hl2, #hl3, #logo, #next-btn {
+#hfl1, #hfl2, #hfl3, #logo, #next-btn {
     opacity: 0;
     /* transform: translateY(50px); */
 }
