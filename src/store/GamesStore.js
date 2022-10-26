@@ -183,7 +183,7 @@ export const gamesStore = defineStore("games", {
       // this.winpercentage = 24
     },
     genLoser() {
-      let num = Math.floor(Math.random() * 10) + 1;
+      let num = Math.floor(Math.random() * 10);
       if (this.picks.includes(num) || this.fireball === num) {
         this.genLoser();
       } else {
